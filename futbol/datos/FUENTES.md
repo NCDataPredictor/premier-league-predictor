@@ -19,3 +19,13 @@ Desde la nube (Claude) todas las webs de fútbol dan 403 del proxy. Desde el PC 
 
 Pendiente de verificar con datos reales: qué lado es y=0 en el shotmap de FotMob (`INVERTIR_Y` en `fotmob.py`;
 se comprueba con los remates de un extremo izquierdo conocido) y cómo marca FotMob una alineación probable.
+
+## Premier League (26-nov-2026)
+
+| Fuente | Nube de Claude | Notas |
+|---|---|---|
+| FotMob `leagues?id=47` | ❌ 403 del proxy | ID 47 sin verificar: la primera corrida de `jornada.yml` en Actions lo confirma (ver `futbol/premier/nube/estado.json`). |
+| Kambi `football/england/premier_league` | ❌ 403 | Si la ruta no existe, `kambi._ruta_liga()` la busca en el árbol de grupos. |
+| The Odds API `soccer_epl` | sin probar (clave en Actions) | Props con casas `uk`. |
+| Fantasy Premier League `bootstrap-static` | ❌ 403 | Pendiente: estado de lesión y % de jugar (`chance_of_playing_next_round`). |
+| football-data.co.uk `E0.csv` | ❌ 403 | Las temporadas 2019-20 a 2025-26 (con cuotas de apertura y cierre) se bajaron de copias públicas en GitHub para el backtest (`futbol/datos/footballdata.py`). |

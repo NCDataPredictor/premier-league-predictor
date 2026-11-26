@@ -1,14 +1,18 @@
-# Jornada de la Champions en la nube (sin depender del PC de Nicolas):
+# Jornada de la Premier League en la nube (sin depender del PC de Nicolas):
 #   1. FotMob: histórico nuevo y próxima jornada (alineaciones, bajas, árbitro). Si FotMob bloquea la nube, se sigue
 #      con los datos que ya hay en el repo (los sube el PC cuando está prendido).
 #   2. Kambi (Unibet): cuotas de los partidos que no han empezado (si hay extracto de Betano, se respeta).
 #   3. Re-simula solo los partidos que no han empezado y publica (Cloudflare redepliega; la acción de avisos avisa).
-# Deja en futbol/champions/nube/estado.json qué pasos funcionaron en la última corrida.
-name: Jornada Champions (nube)
+# Deja en futbol/premier/nube/estado.json qué pasos funcionaron en la última corrida.
+name: Jornada Premier (nube)
 on:
   schedule:
     - cron: "15 */3 * * *"        # cada 3 horas
-    - cron: "50 16,17,19,20 * * 2,3"  # días de partido: 11:50, 12:50, 14:50 y 15:50 Bogotá (alineaciones)
+    # alineaciones (~55 min antes de las franjas de la Premier en invierno: 7:30, 10:00, 12:30 y 15:00 Bogotá;
+    # entre semana 14:30/15:00). Con el horario de verano británico (finales de marzo a finales de octubre) todo va
+    # una hora antes: ajustar estas dos líneas al cambio de hora.
+    - cron: "35 11,16 * * *"       # 6:35 y 11:35 Bogotá
+    - cron: "5 14,19 * * *"        # 9:05 y 14:05 Bogotá
   workflow_dispatch:
   push:
     branches: [main]
@@ -16,7 +20,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: jornada-champions
+  group: jornada-premier
   cancel-in-progress: false
 jobs:
   jornada:
@@ -33,17 +37,17 @@ jobs:
       - name: Caché de lo crudo de FotMob
         uses: actions/cache@v4
         with:
-          path: futbol/champions/raw
+          path: futbol/premier/raw
           key: fotmob-raw-${{ github.run_id }}
           restore-keys: fotmob-raw-
+      - name: FotMob histórico (temporada actual + anterior)
+        id: hist
+        continue-on-error: true
+        run: python -m futbol.datos.fotmob historico
       - name: FotMob próxima jornada
         id: prox
         continue-on-error: true
         run: python -m futbol.datos.fotmob proximos
-      - name: FotMob últimos partidos de cada equipo (todas las competiciones)
-        id: hist
-        continue-on-error: true
-        run: python -m futbol.datos.fotmob equipos
       - name: Cuotas de Kambi
         id: kambi
         continue-on-error: true
@@ -63,7 +67,7 @@ jobs:
       - name: Simular partidos por empezar
         id: sim
         continue-on-error: true
-        run: python -m futbol.build_site_futbol champions --solo-futuros
+        run: python -m futbol.build_site_futbol premier --solo-futuros
       - name: Estado, publicar y avisar
         if: always()
         env:
@@ -72,18 +76,18 @@ jobs:
         run: |
           git config user.name "ncdata-bot"
           git config user.email "ncdata-bot@users.noreply.github.com"
-          git add futbol/champions docs/champions
-          mkdir -p futbol/champions/nube
+          git add futbol/premier docs/premier
+          mkdir -p futbol/premier/nube
           # En corridas a mano (o al cambiar esta acción) siempre se deja el estado, para saber qué funcionó.
           if git diff --cached --quiet && [ "${{ github.event_name }}" = "schedule" ]; then
             echo "Sin cambios en datos ni web: no se publica (estado: hist=${{ steps.hist.outcome }} prox=${{ steps.prox.outcome }} kambi=${{ steps.kambi.outcome }} sim=${{ steps.sim.outcome }})"
             exit 0
           fi
-          cat > futbol/champions/nube/estado.json <<JSON
+          cat > futbol/premier/nube/estado.json <<JSON
           {"corrida": "$(date -u +%Y-%m-%dT%H:%MZ)", "fotmob_historico": "${{ steps.hist.outcome }}", "fotmob_proximos": "${{ steps.prox.outcome }}",
            "kambi": "${{ steps.kambi.outcome }}", "consenso": "${{ steps.consenso.outcome }}", "props": "${{ steps.props.outcome }}", "simulacion": "${{ steps.sim.outcome }}", "run": "${{ github.run_id }}"}
           JSON
-          git add futbol/champions/nube/estado.json
+          git add futbol/premier/nube/estado.json
           git commit -m "Jornada en la nube: datos, cuotas y simulación ($(date -u +%H:%M) UTC)"
           git pull --rebase -X theirs origin main   # si chocan los datos generados, gana esta corrida (es la más nueva)
           BEFORE=$(git rev-parse HEAD~1)

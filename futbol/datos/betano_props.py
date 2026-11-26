@@ -1,7 +1,7 @@
 """Props de jugador de Betano (pestaña Jugadores) → partidos/<id>.json.
 
 Betano Colombia no ofrece Más/Menos por jugador: da escaleras "1+, 2+, 3+..." (solo el lado a favor). La captura se
-hace desde el navegador de Nicolas (solo lectura) y queda en futbol/champions/cuotas/betano_props.json:
+hace desde el navegador de Nicolas (solo lectura) y queda en futbol/premier/cuotas/betano_props.json:
     {"eventos": {id_betano: "Local - Visitante"}, "datos": {id_betano: {jugador: {"e": equipo, "rp": [k0, c_k0, c_k0+1, ...],
      "p_k": [ks si no son consecutivos]}}}}
 con rp=remates_puerta, r=remates, a=atajadas, fc=faltas_cometidas, fr=faltas_recibidas, p=pases.
@@ -20,9 +20,9 @@ import sys
 RAIZ = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, RAIZ)
 
-from futbol.datos.equipos_ucl import codigo  # noqa: E402
+from futbol.datos.equipos_epl import codigo  # noqa: E402
 
-ARCHIVO = os.path.join(RAIZ, "futbol", "champions", "cuotas", "betano_props.json")
+ARCHIVO = os.path.join(RAIZ, "futbol", "premier", "cuotas", "betano_props.json")
 STATS = {"rp": "remates_puerta", "r": "remates", "a": "atajadas", "fc": "faltas_cometidas", "fr": "faltas_recibidas",
          "p": "pases"}
 
@@ -62,7 +62,7 @@ def props_para(local, visitante):
 
 def main():
     n = 0
-    for f in sorted(glob.glob(os.path.join(RAIZ, "futbol", "champions", "partidos", "*.json"))):
+    for f in sorted(glob.glob(os.path.join(RAIZ, "futbol", "premier", "partidos", "*.json"))):
         with open(f, encoding="utf-8") as fh:
             m = json.load(fh)["match"]
         pr = props_para(m["local"], m["visitante"])

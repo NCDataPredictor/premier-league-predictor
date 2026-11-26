@@ -1,7 +1,14 @@
 __pycache__/
 *.pyc
-# datos de ejemplo sintéticos: se regeneran con futbol/champions/ejemplo/generar.py
+# datos de ejemplo sintéticos: se regeneran con futbol/premier/ejemplo/generar.py
 futbol/*/historico/ejemplo_*.json
+futbol/*/partidos/ejemplo_*.json
+# filas de las corridas de backtest en paralelo (se juntan en mercado_filas.json)
+futbol/premier/backtest/base*.json
+futbol/premier/backtest/v_*.json
+futbol/premier/backtest/filas.json
+futbol/premier/backtest/resumen.json
+futbol/premier/backtest/prueba.json
 # crudos descargados (pesan mucho; se guardan en el PC)
 futbol/*/raw/
 # entorno virtual local

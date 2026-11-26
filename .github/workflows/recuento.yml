@@ -1,5 +1,5 @@
-# Recuento nocturno de los picks de la Champions: cada noche (22:30 Bogotá) trae los resultados del día desde FotMob
-# y liquida los picks publicados (docs/champions/data/recuento.json → sección Rendimiento de la web).
+# Recuento nocturno de los picks de la Premier League: cada noche (22:30 Bogotá) trae los resultados del día desde FotMob
+# y liquida los picks publicados (docs/premier/data/recuento.json → sección Rendimiento de la web).
 # Si ese día no hubo partidos no cambia nada y no se publica.
 name: Recuento de picks (noche)
 on:
@@ -9,7 +9,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: jornada-champions           # la misma que la jornada, para no chocar al publicar
+  group: jornada-premier           # la misma que la jornada, para no chocar al publicar
   cancel-in-progress: false
 jobs:
   recuento:
@@ -24,23 +24,23 @@ jobs:
       - name: Caché de lo crudo de FotMob
         uses: actions/cache@v4
         with:
-          path: futbol/champions/raw
+          path: futbol/premier/raw
           key: fotmob-raw-${{ github.run_id }}
           restore-keys: fotmob-raw-
       - name: Resultados del día (FotMob)
         continue-on-error: true
         run: python -m futbol.datos.fotmob historico
       - name: Liquidar picks
-        run: python -m futbol.recuento champions
+        run: python -m futbol.recuento premier
       - name: Publicar
         env:
           HOOK: ${{ secrets.CF_DEPLOY_HOOK_NCDATA }}
         run: |
           git config user.name "ncdata-bot"
           git config user.email "ncdata-bot@users.noreply.github.com"
-          git add futbol/champions/historico futbol/champions/recuento docs/champions/data/recuento.json docs/champions/data/resultados.json
-          if git diff --cached --quiet -- futbol/champions/recuento futbol/champions/historico; then echo "Sin resultados nuevos"; exit 0; fi
-          git commit -m "Recuento de picks de la Champions ($(date -u +%Y-%m-%d))"
+          git add futbol/premier/historico futbol/premier/recuento docs/premier/data/recuento.json docs/premier/data/resultados.json
+          if git diff --cached --quiet -- futbol/premier/recuento futbol/premier/historico; then echo "Sin resultados nuevos"; exit 0; fi
+          git commit -m "Recuento de picks de la Premier League ($(date -u +%Y-%m-%d))"
           git pull --rebase -X theirs origin main
           git push origin HEAD:main
           # El push con el token de Actions no dispara el despliegue: se pide a Cloudflare aquí (como en jornada.yml).

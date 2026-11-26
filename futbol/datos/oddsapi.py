@@ -4,7 +4,7 @@ Necesita la clave gratuita de https://the-odds-api.com en la variable ODDS_API_K
 Sin clave no hace nada. Plan gratis: 500 créditos/mes; cada consulta cuesta mercados × regiones (aquí 2 × 2 = 4),
 así que se consulta como mucho 2 veces al día por liga (ver MIN_HORAS).
 
-    python -m futbol.datos.oddsapi                 # champions
+    python -m futbol.datos.oddsapi                 # premier
 
 Guarda una foto por consulta en futbol/<liga>/consenso/<fecha>.json (lista de fotos con hora), y deja en la
 última foto, por partido: cuotas de cada casa, mejor cuota, consenso sin margen (media de casas) y Pinnacle.
@@ -22,7 +22,7 @@ sys.path.insert(0, RAIZ)
 
 from futbol.datos.kambi import NOMBRES_K  # noqa: E402
 
-SPORT = {"champions": "soccer_uefa_champs_league"}
+SPORT = {"premier": "soccer_epl"}
 REGIONES = "us,eu"          # us = DraftKings, FanDuel, BetMGM…; eu = Pinnacle, Unibet, Betfair…
 MERCADOS = "h2h,totals"
 MIN_HORAS = 10              # no volver a consultar antes de esto, salvo que falten < 3 h para un partido (cierre)
@@ -63,7 +63,7 @@ def resumen(evento, L, V):
     return out
 
 
-def main(liga="champions"):
+def main(liga="premier"):
     key = os.environ.get("ODDS_API_KEY")
     if not key:
         print("Sin ODDS_API_KEY: no se consulta The Odds API.")

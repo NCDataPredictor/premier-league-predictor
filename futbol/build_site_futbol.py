@@ -1,8 +1,8 @@
 """Simula los partidos de una liga y escribe la web: docs/<liga-web>/data/.
 
-    python -m futbol.build_site_futbol champions                 # todos los partidos de futbol/champions/partidos/
-    python -m futbol.build_site_futbol champions 2026-11-29      # solo los de esa fecha
-    python -m futbol.build_site_futbol champions --sims 5000     # menos simulaciones (pruebas)
+    python -m futbol.build_site_futbol premier                 # todos los partidos de futbol/premier/partidos/
+    python -m futbol.build_site_futbol premier 2026-11-29      # solo los de esa fecha
+    python -m futbol.build_site_futbol premier --sims 5000     # menos simulaciones (pruebas)
 
 Entradas (ver futbol/datos/FORMATO.md):
   futbol/<liga>/historico/*.json   partidos jugados, normalizados (los escriben los descargadores de futbol/datos/)
@@ -28,7 +28,7 @@ from futbol.modelo import params as P  # noqa: E402
 from futbol.datos import betano_props  # noqa: E402
 from futbol import sonador  # noqa: E402
 
-LIGAS = {"champions": {"web": "champions", "nombre": "Champions", "temporada": "2026-27", "anterior": "2025-26"}}
+LIGAS = {"premier": {"web": "premier", "nombre": "Premier League", "temporada": "2026-27", "anterior": "2025-26"}}
 
 
 def cargar(patron):
@@ -40,24 +40,23 @@ def cargar(patron):
     return out
 
 
-def _anclar_al_mercado(ctx, equipos):
-    """Lleva remates, remates a puerta, córners y pases al nivel del rival de la Champions.
+def lambda_mercado(partido, extracto, consenso):
+    """Goles esperados (λ local, λ visitante) que reproducen el 1X2 y el más/menos de goles de la casa, sin margen.
 
-    Las tasas de cada equipo vienen de su liga local, donde Bodø, Viking o Sabah dominan y los grandes pocas veces
-    enfrentan a un rival de su nivel. El mercado sí sabe cuán superior es cada uno: si el mercado le da a un equipo
-    menos goles de los que darían sus tasas de liga local, también tendrá menos remates y córners (r**β)."""
-    lo, hi = P.ANCLA_LIMITES
-    for t in equipos:
-        tasas = ctx["factores"][t]["goles"].get("tasas") or 0
-        if tasas <= 0:
-            continue
-        r = min(hi, max(lo, ctx["esperado"][t]["goles"] / tasas))
-        ctx["factores"][t]["goles"]["mercado_vs_tasas"] = round(r, 3)
-        for s, b in P.ANCLA_MERCADO.items():
-            if s in ctx["esperado"][t]:
-                k = r ** b
-                ctx["esperado"][t][s] *= k
-                ctx["factores"][t].setdefault(s, {})["mercado"] = round(k, 3)
+    futbol-0.2 (backtest Premier 2024-25 y 2025-26, futbol/premier/backtest/): con el 1X2 de la casa los goles del
+    partido salen mejor del mercado que de la fuerza propia (log loss 1X2 0,998 frente a 1,007; más de 2,5 goles 0,679
+    frente a 0,696). Orden de preferencia: Pinnacle del consenso de The Odds API (la casa más afinada), el consenso de
+    casas, y el extracto de Kambi/Betano. None si no hay 1X2: entonces se usa fuerza.py (Dixon-Coles), como en Serie A."""
+    c = consenso or {}
+    x = (c.get("1x2") or {})
+    p1x2 = x.get("pinnacle") or x.get("consenso")
+    if p1x2 and len(p1x2) == 3 and all(p1x2):
+        g = c.get("goles 2.5") or {}
+        pou = g.get("pinnacle") or g.get("consenso")
+        fuente = "Pinnacle" if x.get("pinnacle") else "consenso de casas"
+        return fuerza_mercado.lambdas([1 / q for q in p1x2], 2.5, [1 / q for q in pou] if pou and all(pou) else None), fuente
+    lam = fuerza_mercado.desde_extracto(extracto) if extracto else None
+    return (lam, (extracto or {}).get("casa") or "casa") if lam else (None, None)
 
 
 def predecir(liga, partido, historico, sims):
@@ -71,11 +70,13 @@ def predecir(liga, partido, historico, sims):
     fz = fuerza.ajustar(db["partidos"], m["fecha"], ascendidos=ascendidos, temporada=cfg["temporada"])
     L, V = m["local"], m["visitante"]
     lam = partido.get("lambda_mercado")
-    # Champions: los goles esperados del partido salen del mercado (1X2 + total sin margen); fuerza.py solo para el resto
-    goles_fn = lambda a, b, neutral: tuple(lam) if (lam and (a, b) == (L, V)) else fuerza.esperados(fz, a, b, neutral)  # noqa: E731
-    ctx = contexto.armar(db, goles_fn, partido)
+    lam_fz = fuerza.esperados(fz, L, V, m.get("neutral", False))
     if lam:
-        _anclar_al_mercado(ctx, (L, V))
+        # goles del partido: los del mercado con un poco de la fuerza propia (media geométrica, PESO_FUERZA_PROPIA)
+        a = P.PESO_FUERZA_PROPIA
+        lam = [round(lam[i] ** (1 - a) * lam_fz[i] ** a, 3) for i in range(2)]
+    goles_fn = lambda x, y, neutral: tuple(lam) if (lam and (x, y) == (L, V)) else fuerza.esperados(fz, x, y, neutral)  # noqa: E731
+    ctx = contexto.armar(db, goles_fn, partido)
     prep = {t: jugadores.preparar_equipo(db, partido, t) for t in (L, V)}
     mult = {}
     bajas_det = {}
@@ -93,7 +94,8 @@ def predecir(liga, partido, historico, sims):
         "match": m, "contexto_partido": partido.get("contexto", {}),
         "modelo": {"version": P.MODEL_VERSION, "ascendidos": sorted(ascendidos), "sims": sim["N"], "fuerza": {"mu": round(fz["mu"], 3), "localia": round(fz["localia"], 3),
                    "rho": fz["rho"], "att": {t: round(fz["att"].get(t, 1), 3) for t in (L, V)},
-                   "def": {t: round(fz["def"].get(t, 1), 3) for t in (L, V)}, "mercado": lam}, "n_historico": db["n_partidos"]},
+                   "def": {t: round(fz["def"].get(t, 1), 3) for t in (L, V)}, "mercado": lam, "fuente_goles": partido.get("fuente_lambda") or "fuerza",
+                   "lambda_fuerza": [round(x, 3) for x in lam_fz]}, "n_historico": db["n_partidos"]},
         "partido": mercados.partido(sim, L, V),
         "equipos": {t: mercados.equipo(sim, i, t, eqs[t].esp) for i, t in enumerate((L, V))},
         "tramos_sim": {t: mercados.tramos(sim, i) for i, t in enumerate((L, V))},
@@ -119,7 +121,7 @@ def predecir(liga, partido, historico, sims):
 # Últimos partidos jugados de cada jugador (para la ficha del jugador y los mini gráficos de sus líneas en la web).
 # Compacto: una fila por partido con las columnas de ULT_COLS (de más viejo a más reciente).
 ULT_COLS = ("fecha", "rival", "local", "min", "titular", "remates", "remates_puerta", "faltas_cometidas",
-            "faltas_recibidas", "pases", "amarillas", "ucl")   # ucl: 1 si fue partido de Champions
+            "faltas_recibidas", "pases", "amarillas")
 ULT_N = 10
 
 
@@ -138,8 +140,7 @@ def _recientes_jugadores(res, historico, fecha):
                     continue
                 mins = max(0, int(round((j.get("min_sale") or 0) - (j.get("min_entra") or 0))))
                 filas.setdefault(k, []).append([x["fecha"], rival, int(t == x["local"]), mins, int(bool(j.get("titular")))]
-                                               + [j.get(c) for c in ULT_COLS[5:-1]]
-                                               + [int(x.get("competicion") == "Champions League")])
+                                               + [j.get(c) for c in ULT_COLS[5:]])
     for t in res["jugadores"]:
         for j in res["jugadores"][t]:
             u = sorted(filas.get(num(j.get("id")), []), key=lambda r: r[0])
@@ -360,9 +361,8 @@ def main():
     a = ap.parse_args()
     cfg = LIGAS[a.liga]
     hist = cargar(os.path.join(RAIZ, "futbol", a.liga, "historico", "*.json"))
-    # FotMob no trae estadísticas de algunas ligas (Azerbaiyán, copas menores...): solo el marcador. Si entran, cuentan
-    # como 0 remates, 0 córners... y hunden las tasas del equipo y del rival (Barcelona esperaba 12 remates ante Sabah).
-    # Los goles ya salen del mercado, así que esos partidos se dejan fuera.
+    # Un partido sin estadísticas (solo el marcador) contaría como 0 remates, 0 córners... y hundiría las tasas del equipo
+    # y del rival: se deja fuera.
     n0 = len(hist)
     hist = [p for p in hist if all("remates" in e for e in p["equipos"].values())]
     if len(hist) < n0:
@@ -396,7 +396,11 @@ def main():
                 extracto = json.load(fh)
             cu = dict(p.get("cuotas") or {})
             cu["equipo"] = list(cu.get("equipo") or []) + betano.cuotas_equipo(p, extracto)
-            p = {**p, "cuotas": cu, "lambda_mercado": fuerza_mercado.desde_extracto(extracto)}
+            p = {**p, "cuotas": cu}
+        cons = _consenso(a.liga, pid)
+        lam, fuente = lambda_mercado(p, extracto, cons)
+        if lam:
+            p = {**p, "lambda_mercado": lam, "fuente_lambda": fuente}
         res = predecir(a.liga, p, hist, a.sims)
         m = p["match"]
         abre = apertura.get(m.get("jornada")) or (datetime.combine(date.fromisoformat(m["fecha"]) - timedelta(days=1),
@@ -406,7 +410,6 @@ def main():
             # todavía no: sin picks, sin errores de cuota y sin líneas para la soñadora
             res["picks"], res["lineas_casa"] = [], []
             res["picks_desde"] = abre.strftime("%Y-%m-%dT%H:%MZ")
-        cons = _consenso(a.liga, res["id"])
         if cons:
             res["consenso"] = cons
         if extracto:

@@ -5,7 +5,7 @@ Lo corre .github/workflows/avisos.yml en cada push a main que cambie docs/<liga>
 Compara el index.json de antes y el de ahora y manda:
   · "Jornada N lista": cuando aparece una jornada nueva o la jornada pasa a tener picks (se cargaron las cuotas).
   · "Alineaciones confirmadas": por cada partido cuyos dos equipos pasan a alineación oficial.
-Solo a los suscritos con el tag de la liga (champions = 1). Sin el secreto ONESIGNAL_REST_API_KEY no envía nada.
+Solo a los suscritos con el tag de la liga (premier = 1). Sin el secreto ONESIGNAL_REST_API_KEY no envía nada.
 A mano: python -m futbol.avisos_futbol --test "texto"
 """
 import argparse
@@ -20,7 +20,7 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONF = os.path.join(RAIZ, "docs", "push.json")
 # Cada liga con su tag, su emoji en el título y su ícono (docs/<web>/icons/icon-192.png): así se distingue el aviso
 # de un vistazo. Para una liga nueva: una entrada más aquí + su ícono.
-LIGAS = {"champions": {"tag": "champions", "nombre": "Champions", "emoji": "🏆"}}
+LIGAS = {"premier": {"tag": "premier", "nombre": "Premier League", "emoji": "🦁"}}
 
 
 def _cargar(path, default):
@@ -91,7 +91,7 @@ def main():
     a = ap.parse_args()
     site = _cargar(CONF, {}).get("site", "https://ncdatapredictor.pages.dev/")
     if a.test is not None:
-        enviar("champions", "🏆 Champions · NCData Predictor", a.test or "Prueba: así te llegará un aviso de la Champions.", site + "champions/", "prueba-" + datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S"), site + "champions/icons/icon-192.png")
+        enviar("premier", "🦁 Premier League · NCData Predictor", a.test or "Prueba: así te llegará un aviso de la Premier League.", site + "premier/", "prueba-" + datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S"), site + "premier/icons/icon-192.png")
         return
     for web, cfg in LIGAS.items():
         rel = f"docs/{web}/data/index.json"

@@ -5,8 +5,8 @@
 <meta name="apple-mobile-web-app-title" content="NCData">
 <script>if ("serviceWorker" in navigator) addEventListener("load", () => navigator.serviceWorker.register("/OneSignalSDKWorker.js", {scope: "/"}).catch(() => {}));</script>
 
-<title>Champions Predictor</title>
-<meta name="theme-color" content="#1a1659">
+<title>Premier League Predictor</title>
+<meta name="theme-color" content="#38003c">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" type="image/png" sizes="192x192" href="../icon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,30 +16,31 @@
 try { const t = localStorage.getItem("ncdp-theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
 </script>
 <style>
-/* Champions Predictor. Paleta: azul noche UEFA #0A1446, azul #1B2A7A, plata #C0C7D8 y estrellas en el banner;
-   verde #00A346, rojo #DB052B y gris #E2E2E2. Misma estructura que la web NBA: banner, barra de partidos,
+/* Premier League Predictor. Paleta de la liga: morado #38003C, morado claro #5B0A63, verde neón #00FF85 y
+   rosa #E90052 (acentos del banner); verde #00A346, rojo #DB052B y gris para favorable / desfavorable / neutro. Misma estructura que la web NBA: banner, barra de partidos,
    inicio de la jornada y panel de cada partido (#id) con pestañas. */
 :root {
-  --bg: #f1f3f9; --surface: #ffffff; --ink: #0e0d33; --muted: #5a5f7a; --line: #dfe2ec; --soft: #f6f7fb;
-  --accent: #1b2a7a; --accent-2: #3557d6; --accent-soft: #e4e8f7; --on-accent: #ffffff;
-  --banner: #0a1446; --banner-2: #1b2a7a; --banner-ink: #f5f6fc; --banner-muted: #c0c7d8; --ticker: #070f36;
-  --good: #00a346; --good-soft: #dcf3e5; --bad: #db052b; --bad-soft: #fbe2e6; --draw: #8a8fb0;
-  --heat: 0, 50, 160;
+  --bg: #f5f1f6; --surface: #ffffff; --ink: #1d0420; --muted: #6a5a6e; --line: #e6dde8; --soft: #faf6fa;
+  --accent: #5b0a63; --accent-2: #7a1f84; --accent-soft: #f0e3f2; --on-accent: #ffffff;
+  --banner: #38003c; --banner-2: #5b0a63; --banner-ink: #fbf5fc; --banner-muted: #d9c4dc; --ticker: #2a002d;
+  --pl-green: #00ff85; --pl-pink: #e90052;
+  --good: #00a346; --good-soft: #dcf3e5; --bad: #db052b; --bad-soft: #fbe2e6; --draw: #938898;
+  --heat: 91, 10, 99;
   --display: "Oswald", "Arial Narrow", system-ui, sans-serif;
   --body: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "Roboto Mono", ui-monospace, Menlo, monospace;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --bg: #07061c; --surface: #100e2e; --ink: #eef0fb; --muted: #9a9fc4; --line: #24214f; --soft: #151239;
-  --accent: #5b8dff; --accent-2: #3d9bff; --accent-soft: #1a1f5c; --on-accent: #07061c;
-  --banner: #050b2e; --banner-2: #14206a; --ticker: #040824;
-  --good: #2fd27a; --good-soft: #0d2f1f; --bad: #ff5470; --bad-soft: #3a0f1c; --draw: #8a8fb0; --heat: 91, 141, 255; color-scheme: dark } }
+  --bg: #12021a; --surface: #1d0726; --ink: #f6eef8; --muted: #b9a3be; --line: #3a1844; --soft: #240a2e;
+  --accent: #00ff85; --accent-2: #3dffa2; --accent-soft: #0f3a2a; --on-accent: #12021a;
+  --banner: #24002a; --banner-2: #4a0752; --ticker: #1a001e;
+  --good: #2fd27a; --good-soft: #0d2f1f; --bad: #ff5470; --bad-soft: #3a0f1c; --draw: #9a8fa0; --heat: 0, 255, 133; color-scheme: dark } }
 :root[data-theme="dark"] {
-  --bg: #07061c; --surface: #100e2e; --ink: #eef0fb; --muted: #9a9fc4; --line: #24214f; --soft: #151239;
-  --accent: #5b8dff; --accent-2: #3d9bff; --accent-soft: #1a1f5c; --on-accent: #07061c;
-  --banner: #050b2e; --banner-2: #14206a; --ticker: #040824;
-  --good: #2fd27a; --good-soft: #0d2f1f; --bad: #ff5470; --bad-soft: #3a0f1c; --draw: #8a8fb0; --heat: 91, 141, 255; color-scheme: dark }
+  --bg: #12021a; --surface: #1d0726; --ink: #f6eef8; --muted: #b9a3be; --line: #3a1844; --soft: #240a2e;
+  --accent: #00ff85; --accent-2: #3dffa2; --accent-soft: #0f3a2a; --on-accent: #12021a;
+  --banner: #24002a; --banner-2: #4a0752; --ticker: #1a001e;
+  --good: #2fd27a; --good-soft: #0d2f1f; --bad: #ff5470; --bad-soft: #3a0f1c; --draw: #9a8fa0; --heat: 0, 255, 133; color-scheme: dark }
 * { box-sizing: border-box }
 body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--body); margin: 0 }
 .gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
@@ -55,22 +56,22 @@ button { font: inherit }
 
 /* banner */
 .banner { background: linear-gradient(115deg, var(--banner) 0%, var(--banner) 55%, var(--banner-2) 100%); color: var(--banner-ink); position: relative }
-.banner::after { content: ""; position: absolute; inset: auto 0 0 0; height: 4px; background: linear-gradient(90deg, #c0c7d8, #ffffff 50%, #c0c7d8) }
+.banner::after { content: ""; position: absolute; inset: auto 0 0 0; height: 4px; background: linear-gradient(90deg, var(--pl-green), #04f5ff 50%, var(--pl-pink)) }
 .banner::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .18; background: radial-gradient(circle at 85% 30%, #fff 0 1.5px, transparent 2px), radial-gradient(circle at 78% 62%, #fff 0 1.5px, transparent 2px), radial-gradient(circle at 92% 70%, #fff 0 1.5px, transparent 2px), radial-gradient(circle at 70% 25%, #fff 0 1px, transparent 1.5px), radial-gradient(circle at 96% 40%, #fff 0 1px, transparent 1.5px), radial-gradient(circle at 88% 85%, #fff 0 1px, transparent 1.5px), radial-gradient(circle at 64% 75%, #fff 0 1px, transparent 1.5px), radial-gradient(circle at 75% 45%, #fff 0 1px, transparent 1.5px) }
 .banner .inner { padding-block: calc(18px + env(safe-area-inset-top, 0px)) 18px; display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center; justify-content: space-between }
 .brand { color: inherit; text-decoration: none; display: flex; align-items: center; gap: 14px; min-width: 0 }
 .logo { flex: none; width: 50px; height: 50px; border-radius: 12px; display: grid; place-items: center; background: var(--accent-2); box-shadow: inset 0 -3px 0 rgba(0,0,0,.25) }
 .logo svg { width: 32px; height: 32px }
-/* Ambientación con el logo de la Champions (24-nov, pedido de Nicolas): logo en la marca, marca de agua difuminada en el
+/* Ambientación con el logo de la liga (como en la Champions, pedido de Nicolas del 24-nov): logo en la marca, marca de agua difuminada en el
    encabezado y una muy tenue en el fondo de la página (detrás de los paneles, solo asoma en los espacios). */
 .logo.lg-mark { background: #fff; box-shadow: inset 0 -3px 0 rgba(0,0,0,.12); padding: 6px }
-.logo.lg-mark img { width: 100%; height: 100%; object-fit: contain; display: block; filter: brightness(.35) sepia(1) hue-rotate(190deg) saturate(4) }
+.logo.lg-mark img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .wm-box { position: absolute; inset: 0; overflow: hidden; pointer-events: none }
-.wm-box .wm { position: absolute; right: max(3%, 20px); top: 50%; height: 175%; aspect-ratio: 1; background: url(logos/champions.png) center / contain no-repeat;
-  opacity: .16; transform: translateY(-50%) rotate(-14deg); filter: blur(1.4px) brightness(0) invert(1) }
+.wm-box .wm { position: absolute; right: max(3%, 20px); top: 50%; height: 175%; aspect-ratio: 1; background: url(logos/premier.png) center / contain no-repeat;
+  opacity: .09; transform: translateY(-50%) rotate(-14deg); filter: blur(1.4px) brightness(0) invert(1) }
 .banner > .inner { position: relative }
 body::after { content: ""; position: fixed; z-index: -1; right: -70px; bottom: -70px; width: min(34vw, 340px); aspect-ratio: 1; pointer-events: none;
-  background: url(logos/champions.png) center / contain no-repeat; opacity: .05; transform: rotate(-14deg); filter: grayscale(.2) }
+  background: url(logos/premier.png) center / contain no-repeat; opacity: .05; transform: rotate(-14deg); filter: grayscale(.2) }
 :root[data-theme="dark"] body::after { filter: brightness(0) invert(1); opacity: .035 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) body::after { filter: brightness(0) invert(1); opacity: .035 } }
 @media (max-width: 640px) { .wm-box .wm { right: -20px; height: 140% } body::after { width: 170px; right: -40px; bottom: -40px } }
@@ -140,7 +141,8 @@ main { padding-block: 22px 60px }
 .mc-when b { color: var(--ink); font-size: 14px }
 .mc-teams { display: grid; grid-template-columns: 1fr auto 1fr; align-items: start; gap: 8px; text-align: center }
 .mc-t { display: grid; justify-items: center; gap: 6px; min-width: 0 }
-.mc-t .nm { font: 700 19px/1.05 var(--display); text-transform: uppercase; letter-spacing: .02em; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.mc-t .nm { font: 700 19px/1.05 var(--display); text-transform: uppercase; letter-spacing: .02em; max-width: 100%; text-wrap: balance; overflow-wrap: break-word }
+/* Premier: nombres largos ("Nottingham Forest", "Crystal Palace") en dos líneas en vez de cortarse con "…" */
 .mc-t .pw { font: 700 15px var(--mono); color: var(--muted) }
 .mc-t .pw.fav { color: var(--good) }
 .mc-t .pw small { font: 500 10px var(--mono); display: block; text-transform: uppercase; letter-spacing: .05em; color: var(--muted) }
@@ -533,7 +535,7 @@ main { padding-bottom: 96px }
 .plg > summary .sl { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px }
 /* soñadora */
 .sn-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)) }
-.sn-card { padding: 14px 16px; border-top: 3px solid var(--ucl-star, #c9a227) }
+.sn-card { padding: 14px 16px; border-top: 3px solid var(--pl-pink, #e90052) }
 .sn-card h3 { margin: 0 0 4px; font-size: 18px }
 .sn-card .tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 10px 0 }
 .sn-legs { list-style: none; margin: 0; padding: 0; font-size: 13.5px }
@@ -644,8 +646,8 @@ main:focus { outline: none }
   <div class="wm-box" aria-hidden="true"><span class="wm"></span></div>
   <div class="inner">
     <button type="button" class="icon-btn back-btn" id="back-btn" aria-label="Volver" title="Volver"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-    <a class="brand" href="#"><span class="logo lg-mark" aria-hidden="true"><img src="logos/champions.png" alt="" width="38" height="38"></span>
-      <span class="brand-t"><span>Simulación minuto a minuto · UEFA Champions League</span><h1>Champions Predictor</h1></span></a>
+    <a class="brand" href="#"><span class="logo lg-mark" aria-hidden="true"><img src="logos/premier.png" alt="" width="38" height="38"></span>
+      <span class="brand-t"><span>Simulación minuto a minuto · Premier League</span><h1>Premier League Predictor</h1></span></a>
     <div class="side" role="navigation" aria-label="Secciones">
       <button type="button" class="home-link" id="avisos-btn" aria-haspopup="dialog" title="Avisos al celular"><svg class="hi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0112 0v5l1.5 2h-15z"/><path d="M10 20.5a2.2 2.2 0 004 0"/></svg><span>Avisos</span></button>
       <a class="home-link" href="manual/" title="Manual"><svg class="hi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 3H20v16H5.5A1.5 1.5 0 004 20.5v-16A1.5 1.5 0 015.5 3z"/><path d="M4 20.5A1.5 1.5 0 005.5 22H20v-3M8.5 7.5h7"/></svg><span>Manual</span></a>
@@ -662,7 +664,7 @@ main:focus { outline: none }
 </header>
 <div class="demo" id="demo" hidden><b>Datos de ejemplo</b> · jugadores, árbitros y estadísticas sintéticos para probar el modelo y la página. No son predicciones reales.</div>
 <dialog id="avisos-dlg" aria-labelledby="avisos-t">
-  <div class="dlg-head"><h2 id="avisos-t">Avisos de la Champions</h2><button type="button" class="dlg-x" id="avisos-x" aria-label="Cerrar">✕</button></div>
+  <div class="dlg-head"><h2 id="avisos-t">Avisos de la Premier League</h2><button type="button" class="dlg-x" id="avisos-x" aria-label="Cerrar">✕</button></div>
   <p class="note" style="margin-top:0">Te llega un aviso al celular o al computador cuando <b>el análisis de la jornada está listo</b> (picks y errores de cuota) y cuando <b>salen las alineaciones oficiales</b> de un partido (≈1 h antes), para que revises los picks antes de que empiece.</p>
   <div id="avisos-box"></div>
 </dialog>
@@ -735,22 +737,24 @@ const ZONA = {izq: "Izquierda", centro: "Centro", der: "Derecha"};
 const SIT = {jugada: "Jugada elaborada", contragolpe: "Contragolpe", balon_parado: "Balón parado", penalti: "Penalti"};
 // Colores de cada club (camiseta principal / texto)
 const TEAM = {
-  ARS: ["Arsenal", "#db0007", "#fff"], BVB: ["Dortmund", "#fde100", "#111"], BOD: ["Bodø/Glimt", "#ffd700", "#111"], LAS: ["LASK", "#111", "#fff"],
-  COM: ["Como", "#0a4595", "#fff"], AEK: ["AEK Atenas", "#ffd700", "#111"], FEY: ["Feyenoord", "#e3001b", "#fff"], POR: ["Porto", "#00428c", "#fff"],
-  GAL: ["Galatasaray", "#a90432", "#fdb912"], AVL: ["Aston Villa", "#670e36", "#95bfe5"], MCI: ["Man. City", "#6cabdd", "#1c2c5b"], MUN: ["Man. United", "#da291c", "#fbe122"],
-  NAP: ["Napoli", "#12a0d7", "#fff"], RBL: ["Leipzig", "#dd0741", "#fff"], LEN: ["Lens", "#ffd700", "#e2001a"], RMA: ["Real Madrid", "#f5f5f5", "#00529f"],
-  PSV: ["PSV", "#ed1c24", "#fff"], SLO: ["Slovan", "#5aa6e0", "#fff"], BET: ["Betis", "#0bb363", "#fff"], SAB: ["Sabah", "#0f4c9c", "#fff"],
-  BAR: ["Barcelona", "#a50044", "#edbb00"], SLA: ["Slavia Praga", "#d00027", "#fff"], VIL: ["Villarreal", "#ffe667", "#005187"], ATM: ["Atlético", "#cb3524", "#fff"],
-  VIK: ["Viking", "#00305e", "#fff"], BRU: ["Brujas", "#0062ae", "#111"], LIV: ["Liverpool", "#c8102e", "#fff"], INT: ["Inter", "#0068a8", "#fff"],
-  VFB: ["Stuttgart", "#e32219", "#fff"], LIL: ["Lille", "#e01e13", "#20325f"], BAY: ["Bayern", "#dc052d", "#fff"], PSG: ["PSG", "#004170", "#fff"],
-  ROM: ["Roma", "#8e1f2f", "#f0bc42"], SHA: ["Shakhtar", "#f26522", "#111"], FEN: ["Fenerbahçe", "#163962", "#ffed00"], SCP: ["Sporting CP", "#008057", "#fff"]
+  ARS: ["Arsenal", "#db0007", "#fff"], AVL: ["Aston Villa", "#670e36", "#95bfe5"], BOU: ["Bournemouth", "#da291c", "#111"],
+  BRE: ["Brentford", "#e30613", "#fff"], BHA: ["Brighton", "#0057b8", "#fff"], BUR: ["Burnley", "#6c1d45", "#99d6ea"],
+  CHE: ["Chelsea", "#034694", "#fff"], CRY: ["Crystal Palace", "#1b458f", "#c4122e"], EVE: ["Everton", "#003399", "#fff"],
+  FUL: ["Fulham", "#f5f5f5", "#111"], LEE: ["Leeds", "#f5f5f5", "#1d428a"], LIV: ["Liverpool", "#c8102e", "#fff"],
+  MCI: ["Man. City", "#6cabdd", "#1c2c5b"], MUN: ["Man. United", "#da291c", "#fbe122"], NEW: ["Newcastle", "#241f20", "#fff"],
+  NFO: ["Nottingham Forest", "#dd0000", "#fff"], SUN: ["Sunderland", "#eb172b", "#fff"], TOT: ["Tottenham", "#132257", "#fff"],
+  WHU: ["West Ham", "#7a263a", "#1bb1e7"], WOL: ["Wolves", "#fdb913", "#231f20"], HUL: ["Hull City", "#f5a12d", "#111"],
+  IPS: ["Ipswich", "#0044a9", "#fff"], COV: ["Coventry", "#59b3e4", "#111"], MID: ["Middlesbrough", "#e11b22", "#fff"],
+  LEI: ["Leicester", "#003090", "#fdbe11"], SOU: ["Southampton", "#d71920", "#fff"], LUT: ["Luton", "#f78f1e", "#002d62"],
+  SHU: ["Sheffield Utd", "#ee2737", "#111"], NOR: ["Norwich", "#fff200", "#00a650"], WAT: ["Watford", "#fbee23", "#111"],
+  WBA: ["West Brom", "#122f67", "#fff"]
 };
 const tname = c => (TEAM[c] || [c])[0];
-const badge = c => { const t = TEAM[c] || [c, "#0032a0", "#fff"]; return `<span class="badge" style="--tc:${t[1]};--tf:${t[2]}">${esc(c)}</span>`; };
+const badge = c => { const t = TEAM[c] || [c, "#38003c", "#fff"]; return `<span class="badge" style="--tc:${t[1]};--tf:${t[2]}">${esc(c)}</span>`; };
 // Ids de FotMob para escudos y fotos (images.fotmob.com). Si una imagen no carga se ve el escudo de código / las iniciales.
-const FM = {};  // se llena con data/equipos.json (ids de FotMob de los 36 equipos)
+const FM = {};  // se llena con data/equipos.json (ids de FotMob de los 20 equipos)
 const IMG = "https://images.fotmob.com/image_resources/";
-const tcol = c => (TEAM[c] || [c, "#0032a0", "#fff"]);
+const tcol = c => (TEAM[c] || [c, "#38003c", "#fff"]);
 const crest = (c, px = 28) => FM[c]
   ? `<span class="crest" style="--cs:${px}px"><img src="${IMG}logo/teamlogo/${FM[c]}.png" alt="${esc(tname(c))}" loading="lazy" onerror="this.parentNode.classList.add('nf')">${badge(c)}</span>`
   : `<span class="crest nf" style="--cs:${px}px">${badge(c)}</span>`;
@@ -841,7 +845,7 @@ function route() {
 
 /* ---------- inicio de la jornada ---------- */
 function bar3(p, L, V, i = 0) {
-  const c1 = (TEAM[L] || [0, "#0032a0"])[1], c2 = (TEAM[V] || [0, "#db052b"])[1];
+  const c1 = (TEAM[L] || [0, "#38003c"])[1], c2 = (TEAM[V] || [0, "#db052b"])[1];
   return `<div class="bar3" style="--i:${i}" role="img" aria-label="Local ${pct(p[0])}, empate ${pct(p[1])}, visitante ${pct(p[2])}">
     <div style="width:${p[0] * 100}%;background:${c1};color:${tcol(L)[2]}">${pct(p[0])}</div><div class="x" style="width:${p[1] * 100}%">${pct(p[1])}</div><div style="width:${p[2] * 100}%;background:${c2};color:${tcol(V)[2]}">${pct(p[2])}</div></div>
     <div class="bar3-l"><span>1 · ${esc(L)}</span><span>X · empate</span><span>2 · ${esc(V)}</span></div>`;
@@ -920,7 +924,7 @@ function abrePicks(ps) {
 function fecha(s) { const d = new Date(s + "T12:00:00"); return d.toLocaleDateString("es-CO", {weekday: "short", day: "numeric", month: "short"}); }
 
 /* ---------- panel de un partido ---------- */
-let TAB = store.get("ucl-tab") || "resumen";
+let TAB = store.get("epl-tab") || "resumen";
 async function verPartido(id) {
   $("#app").innerHTML = `<p class="empty">Cargando partido…</p>`;
   let d;
@@ -934,11 +938,11 @@ async function verPartido(id) {
       <div class="mid"><b>${esc(pa.marcadores[0][0])}</b>más probable<br>${pct(pa.marcadores[0][1], 1)}</div>
       <div class="tn">${crest(V, 72)}<div>${esc(tname(V))}</div></div>
     </div>
-    <div class="meta-row"><span>${esc(fecha(m.fecha))} · ${esc(m.hora_local)} CET · <b>${esc(m.hora_bogota)} Bogotá</b></span><span>${esc(m.estadio || "")}</span><span>Árbitro: <b>${esc(d.arbitro.nombre || "por designar")}</b></span>${d.derbi ? `<span class="tag hot">${esc(d.derbi)}</span>` : ""}<span>Alineación ${esc(d.alineacion[L].estado)}</span></div>
+    <div class="meta-row"><span>${esc(fecha(m.fecha))} · ${esc(m.hora_local)} Londres · <b>${esc(m.hora_bogota)} Bogotá</b></span><span>${esc(m.estadio || "")}</span><span>Árbitro: <b>${esc(d.arbitro.nombre || "por designar")}</b></span>${d.derbi ? `<span class="tag hot">${esc(d.derbi)}</span>` : ""}<span>Alineación ${esc(d.alineacion[L].estado)}</span></div>
   </div>
   <nav class="tabs" role="tablist">${tabs.map(([k, t]) => `<button role="tab" data-tab="${k}" aria-selected="${k === TAB}">${t}</button>`).join("")}</nav>
   <div id="tab"></div>`;
-  document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => { TAB = b.dataset.tab; store.set("ucl-tab", TAB); document.querySelectorAll(".tabs button").forEach(x => x.setAttribute("aria-selected", x === b)); pintar(d); });
+  document.querySelectorAll(".tabs button").forEach(b => b.onclick = () => { TAB = b.dataset.tab; store.set("epl-tab", TAB); document.querySelectorAll(".tabs button").forEach(x => x.setAttribute("aria-selected", x === b)); pintar(d); });
   pintar(d);
 }
 function pintar(d) {
@@ -979,7 +983,7 @@ function resumen(d, el) {
             <div class="split-l"><span>${esc(L)} ${pct(mq[0])}</span><span>${s === "goles" ? "empate" : "iguales"} ${pct(mq[1])}</span><span>${esc(V)} ${pct(mq[2])}</span></div>`; }
         return `<tr><td data-sort="${esc(STAT[s])}"><b>${lbl(s)}</b><span class="lg">Liga: ${f1(d.liga.medias[s])} por equipo</span></td><td class="n cl"><b>${f1(a.media)}</b><br><span class="sub">${a.p10}–${a.p90}</span></td><td class="n cv"><b>${f1(b.media)}</b><br><span class="sub">${b.p10}–${b.p90}</span></td><td class="n ct"><b>${f1(t.media)}</b><br><span class="sub">${t.p10}–${t.p90}</span></td><td class="cmp">${cmp}</td></tr>`; }).join("")}
     </table></div>
-    <p class="note">"Liga" es lo que hace un equipo promedio en nuestro histórico (últimos partidos de los equipos de la Champions) en un partido, para comparar. "¿Quién hace más?" es la probabilidad de que ese equipo termine con más que el rival en esa estadística.</p>
+    <p class="note">"Liga" es lo que hace un equipo promedio en nuestro histórico (temporada actual y anterior de la Premier) en un partido, para comparar. "¿Quién hace más?" es la probabilidad de que ese equipo termine con más que el rival en esa estadística.</p>
   </div>
   <div class="card" style="margin-top:14px">
     <div class="toolbar"><h3>Líneas de equipo</h3><select id="linea-st" aria-label="Estadística">${STATS_EQ.map(s => `<option value="${s}">${STAT[s]}</option>`).join("")}</select></div>
@@ -1185,7 +1189,7 @@ function bajas(d, el) {
 }
 
 /* ---------- picks: tabla, Mis picks y Mi combinada ---------- */
-const MINE_K = "ucl-mine";
+const MINE_K = "epl-mine";
 const mine = {
   get() { try { return JSON.parse(store.get(MINE_K) || "[]"); } catch (e) { return []; } },
   set(v) { store.set(MINE_K, JSON.stringify(v)); actualizarMine(); }
@@ -1404,7 +1408,7 @@ const porFecha = (a, b) => a.fecha < b.fecha ? -1 : a.fecha > b.fecha ? 1 : 0;
 function seriesEquipo(d, s, quien) {
   const L = d.match.local, V = d.match.visitante;
   const val = (x, lado) => s === "tarjetas" ? (x[lado].amarillas || 0) + (x[lado].rojas || 0) : x[lado][s];
-  const filas = (t, f) => (d.forma[t] || []).slice().sort(porFecha).map(x => ({v: f(x), rival: x.rival, fecha: x.fecha, local: x.local, ucl: x.competicion === "Champions League"})).filter(x => x.v != null);
+  const filas = (t, f) => (d.forma[t] || []).slice().sort(porFecha).map(x => ({v: f(x), rival: x.rival, fecha: x.fecha, local: x.local, ucl: false})).filter(x => x.v != null);
   if (quien === "partido") return [
     {t: L, titulo: `Partidos de ${tname(L)}: total de los dos equipos`, filas: filas(L, x => val(x, "favor") + val(x, "contra"))},
     {t: V, titulo: `Partidos de ${tname(V)}: total de los dos equipos`, filas: filas(V, x => val(x, "favor") + val(x, "contra"))}];
@@ -1421,7 +1425,7 @@ function seriesJugador(d, t, j, s) {
   if (!j || !j.ult || !j.ult.length || i < 0) return null;
   const c = k => C.indexOf(k);
   return [{t, titulo: `${j.nombre}: sus últimos ${j.ult.length} partidos jugados`,
-    filas: j.ult.map(r => ({v: r[i], rival: r[c("rival")], fecha: r[c("fecha")], local: !!r[c("local")], min: r[c("min")], ucl: c("ucl") >= 0 && !!r[c("ucl")]}))}];
+    filas: j.ult.map(r => ({v: r[i], rival: r[c("rival")], fecha: r[c("fecha")], local: !!r[c("local")], min: r[c("min")], ucl: false}))}];
 }
 const contarHits = (grupos, linea, lado) => { const all = grupos.flatMap(g => g.filas); return {h: all.filter(f => hitDe(f.v, linea, lado)).length, n: all.length}; };
 // Gráfico de un pick (equipo: desde forma; jugador: desde sus últimos partidos)
@@ -1518,7 +1522,7 @@ function abrirJugador(d, t, j) {
 });
 
 /* ---------- Mi combinada: patas guardadas en este navegador; se arma desde cualquier partido ---------- */
-const COMBI_K = "ucl-combi", COMBIS_K = "ucl-combis";
+const COMBI_K = "epl-combi", COMBIS_K = "epl-combis";
 const jstore = k => ({get() { try { return JSON.parse(store.get(k) || "[]"); } catch (e) { return []; } }, set(v) { store.set(k, JSON.stringify(v)); }});
 const combi = jstore(COMBI_K), combis = jstore(COMBIS_K);
 const legKey = o => o.key || pickKey(o);
@@ -1626,7 +1630,7 @@ addEventListener("storage", e => { if (e.key === COMBI_K || e.key === MINE_K) { 
 
 
 /* ---------- secciones comprimibles del inicio (pedido de Nicolas, 24-nov) ---------- */
-const PLG_K = k => "ucl-plg-" + k;
+const PLG_K = k => "epl-plg-" + k;
 const plegable = (k, cab, cuerpo) => `<details class="plg" data-plg="${k}" style="margin-top:28px"${store.get(PLG_K(k)) === "0" ? "" : " open"}>
   <summary class="section"><span class="sl">${cab}</span><span class="cv" aria-hidden="true"></span></summary>${cuerpo}</details>`;
 function bindPlegables(root) { root.querySelectorAll("details.plg").forEach(d => d.addEventListener("toggle", () => store.set(PLG_K(d.dataset.plg), d.open ? "1" : "0"))); }
@@ -1837,9 +1841,9 @@ $("#back-btn").onclick = () => {
 const MODELOS_NAV = [
   {n: "NBA", d: "Baloncesto", url: "../nba/", m1: "#0b1a3a", m2: "#1d428a", lg: "/logos/nba-logoman.svg"},
   {n: "Serie A", d: "Fútbol · Italia", url: "../serie-a/", m1: "#1a1659", m2: "#0032a0", lg: "/logos/serie-a.png"},
-  {n: "Premier League", d: "Fútbol · Inglaterra", m1: "#38003c", m2: "#5b0a63", pronto: true},
+  {n: "Premier League", d: "Fútbol · Inglaterra", url: "./", m1: "#38003c", m2: "#5b0a63", cur: true, lg: "/logos/premier.png"},
   {n: "LaLiga", d: "Fútbol · España", m1: "#1f1f1f", m2: "#3a3a3a", pronto: true},
-  {n: "Champions", d: "Fútbol · Europa", url: "./", m1: "#0a1446", m2: "#1b2a7a", cur: true, lg: "/logos/champions.png", inv: true},
+  {n: "Champions", d: "Fútbol · Europa", url: "../champions/", m1: "#0a1446", m2: "#1b2a7a", lg: "/logos/champions.png", inv: true},
   {n: "Europa League", d: "Fútbol · Europa", m1: "#2b1a00", m2: "#5a3600", pronto: true}];
 const dlg = $("#modelos-dlg");
 $("#modelos-grid").innerHTML = MODELOS_NAV.map(m => `<a class="dlg-m ${m.cur ? "cur" : ""} ${m.pronto ? "soon" : ""}" ${m.url ? `href="${m.url}"` : 'aria-disabled="true"'} style="--m1:${m.m1};--m2:${m.m2}">${m.lg ? `<img class="dlg-wm${m.inv ? " inv" : ""}" src="${m.lg}" alt="" aria-hidden="true" onerror="this.remove()">` : ""}<small>${m.d}</small><b>${m.n}</b></a>`).join("");
@@ -1848,7 +1852,7 @@ $("#modelos-x").onclick = () => dlg.close();
 dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
 dlg.querySelector(".dlg-m.cur").addEventListener("click", e => { e.preventDefault(); dlg.close(); location.hash = ""; });
 
-/* ---------- avisos al celular (OneSignal, worker único en la raíz del sitio; tema "champions") ---------- */
+/* ---------- avisos al celular (OneSignal, worker único en la raíz del sitio; tema "premier") ---------- */
 const AVS = {app: null, os: null, ready: null};
 function avsLoad() {
   if (AVS.ready) return AVS.ready;
@@ -1872,17 +1876,17 @@ async function avsDraw() {
   }
   if (!AVS.app) { box.innerHTML = `<div class="card callout">Avisos: muy pronto.</div>`; return; }
   let on = false;
-  try { const OS = await avsLoad(); on = !!OS.User.PushSubscription.optedIn && Notification.permission === "granted" && (await OS.User.getTags?.() || {}).champions === "1"; } catch (e) {
+  try { const OS = await avsLoad(); on = !!OS.User.PushSubscription.optedIn && Notification.permission === "granted" && (await OS.User.getTags?.() || {}).premier === "1"; } catch (e) {
     box.innerHTML = `<div class="card callout">No se pudo conectar con el servicio de avisos (${esc(e.message || e)}).</div>`; return; }
   box.innerHTML = on
-    ? `<p><span class="tag ok">Activados</span> Recibirás los avisos de la Champions en este dispositivo.</p><button type="button" class="home-link" style="color:var(--ink);border-color:var(--line)" id="avs-off">Desactivar avisos</button>`
+    ? `<p><span class="tag ok">Activados</span> Recibirás los avisos de la Premier League en este dispositivo.</p><button type="button" class="home-link" style="color:var(--ink);border-color:var(--line)" id="avs-off">Desactivar avisos</button>`
     : Notification.permission === "denied" ? `<div class="card callout">Bloqueaste los avisos para este sitio. Actívalos en los ajustes del navegador (candado junto a la dirección → Notificaciones → Permitir) y vuelve aquí.</div>`
-    : `<button type="button" class="addb on" style="width:auto;height:auto;padding:10px 16px;border-radius:999px;font:600 14px var(--display);letter-spacing:.06em;text-transform:uppercase" id="avs-on">Activar avisos de la Champions</button>`;
+    : `<button type="button" class="addb on" style="width:auto;height:auto;padding:10px 16px;border-radius:999px;font:600 14px var(--display);letter-spacing:.06em;text-transform:uppercase" id="avs-on">Activar avisos de la Premier</button>`;
   const b1 = $("#avs-on"), b0 = $("#avs-off");
   if (b1) b1.onclick = async () => { b1.disabled = true; b1.textContent = "Activando…";
-    try { const OS = await avsLoad(); await OS.Notifications.requestPermission(); if (Notification.permission === "granted") { await OS.User.PushSubscription.optIn(); OS.User.addTag("champions", "1"); } } catch (e) {}
+    try { const OS = await avsLoad(); await OS.Notifications.requestPermission(); if (Notification.permission === "granted") { await OS.User.PushSubscription.optIn(); OS.User.addTag("premier", "1"); } } catch (e) {}
     setTimeout(avsDraw, 1500); };
-  if (b0) b0.onclick = async () => { try { (await avsLoad()).User.removeTag("champions"); } catch (e) {} setTimeout(avsDraw, 800); };
+  if (b0) b0.onclick = async () => { try { (await avsLoad()).User.removeTag("premier"); } catch (e) {} setTimeout(avsDraw, 800); };
 }
 const avDlg = $("#avisos-dlg");
 $("#avisos-btn").onclick = async () => {
@@ -1900,7 +1904,7 @@ avDlg.addEventListener("click", e => { if (e.target === avDlg) avDlg.close(); })
    Filtros: una barra .filtros[data-filtro=X] con chips data-fg/data-fv filtra la tabla table[data-filtro=X] por sus filas data-f-<grupo>. */
 const sess = {get(k) { try { return JSON.parse(sessionStorage.getItem(k) || "{}") || {}; } catch (e) { return {}; } },
   set(k, v) { try { sessionStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }};
-const ORD = sess.get("ucl-orden"), FILT = sess.get("ucl-filtros");
+const ORD = sess.get("epl-orden"), FILT = sess.get("epl-filtros");
 const REDUCE = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 const thTxt = th => th.textContent.replace(/\s+/g, " ").trim();
 const esFila = tr => [...tr.cells].some(c => c.tagName === "TD") && !tr.classList.contains("grp") && !tr.classList.contains("f-vacio");
@@ -1978,7 +1982,7 @@ function ordenar(tb, i, dir, porUsuario) {
   filasDe(tb).forEach(r => { if (esFila(r)) [...r.cells].forEach((c, k) => c.classList.toggle("ord-c", !!dir && k === i)); });
   if (porUsuario) {
     if (dir) ORD[tb._key] = {c: thTxt(th), d: dir}; else delete ORD[tb._key];
-    sess.set("ucl-orden", ORD);
+    sess.set("epl-orden", ORD);
     if (!REDUCE()) { body.classList.remove("ord-anim"); void body.offsetWidth; body.classList.add("ord-anim"); clearTimeout(body._t); body._t = setTimeout(() => body.classList.remove("ord-anim"), 400); }
   }
   if (tb.dataset.filtro) aplicarFiltros(tb.dataset.filtro);
@@ -2050,15 +2054,15 @@ document.addEventListener("click", e => {
   if (c && !c.disabled) {
     const sc = c.closest("[data-filtro]").dataset.filtro, st = filtroDe(sc), g = c.dataset.fg, v = c.dataset.fv;
     st[g] = String(st[g] ?? "all") === v && v !== "all" ? "all" : v;
-    sess.set("ucl-filtros", FILT); aplicarFiltros(sc); return;
+    sess.set("epl-filtros", FILT); aplicarFiltros(sc); return;
   }
   const r = e.target.closest("[data-freset]");
-  if (r) { e.preventDefault(); FILT[r.dataset.freset] = {}; sess.set("ucl-filtros", FILT); aplicarFiltros(r.dataset.freset); }
+  if (r) { e.preventDefault(); FILT[r.dataset.freset] = {}; sess.set("epl-filtros", FILT); aplicarFiltros(r.dataset.freset); }
 });
 document.addEventListener("input", e => {
   if (!e.target.matches(".fq")) return;
   const sc = e.target.closest("[data-filtro]").dataset.filtro;
-  filtroDe(sc).q = e.target.value; sess.set("ucl-filtros", FILT); aplicarFiltros(sc);
+  filtroDe(sc).q = e.target.value; sess.set("epl-filtros", FILT); aplicarFiltros(sc);
 });
 // Barra de chips: grupos [[clave, etiqueta-aria, [[valor, html, clase, deshabilitado]]]]
 const chipsBar = (scope, unidad, grupos, extra = "") => `<div class="filtros" data-filtro="${esc(scope)}" data-unidad="${esc(unidad)}">${grupos.map(([g, aria, ops]) =>
