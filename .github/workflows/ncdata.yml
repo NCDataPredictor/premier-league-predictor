@@ -1,0 +1,19 @@
+# Cada push a main redepliega ncdatapredictor.pages.dev (que copia esta web en /champions/ durante su build).
+# Necesita el secreto CF_DEPLOY_HOOK_NCDATA (deploy hook del proyecto "ncdatapredictor" en Cloudflare Pages);
+# sin el secreto no hace nada.
+name: Actualizar NCData Predictor (/champions)
+on:
+  push:
+    branches: [main]
+    paths: [docs/**]
+  workflow_dispatch:
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Llamar al deploy hook
+        env:
+          HOOK: ${{ secrets.CF_DEPLOY_HOOK_NCDATA }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "Sin CF_DEPLOY_HOOK_NCDATA: no se redepliega."; exit 0; fi
+          curl -fsS -X POST "$HOOK" > /dev/null && echo "Redespliegue pedido."

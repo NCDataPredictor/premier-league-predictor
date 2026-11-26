@@ -1,0 +1,94 @@
+# Jornada de la Champions en la nube (sin depender del PC de Nicolas):
+#   1. FotMob: histórico nuevo y próxima jornada (alineaciones, bajas, árbitro). Si FotMob bloquea la nube, se sigue
+#      con los datos que ya hay en el repo (los sube el PC cuando está prendido).
+#   2. Kambi (Unibet): cuotas de los partidos que no han empezado (si hay extracto de Betano, se respeta).
+#   3. Re-simula solo los partidos que no han empezado y publica (Cloudflare redepliega; la acción de avisos avisa).
+# Deja en futbol/champions/nube/estado.json qué pasos funcionaron en la última corrida.
+name: Jornada Champions (nube)
+on:
+  schedule:
+    - cron: "15 */3 * * *"        # cada 3 horas
+    - cron: "50 16,17,19,20 * * 2,3"  # días de partido: 11:50, 12:50, 14:50 y 15:50 Bogotá (alineaciones)
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [.github/workflows/jornada.yml]
+permissions:
+  contents: write
+concurrency:
+  group: jornada-champions
+  cancel-in-progress: false
+jobs:
+  jornada:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main            # lo último de main (no el commit que disparó la corrida)
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install numpy
+      - name: Caché de lo crudo de FotMob
+        uses: actions/cache@v4
+        with:
+          path: futbol/champions/raw
+          key: fotmob-raw-${{ github.run_id }}
+          restore-keys: fotmob-raw-
+      - name: FotMob próxima jornada
+        id: prox
+        continue-on-error: true
+        run: python -m futbol.datos.fotmob proximos
+      - name: FotMob últimos partidos de cada equipo (todas las competiciones)
+        id: hist
+        continue-on-error: true
+        run: python -m futbol.datos.fotmob equipos
+      - name: Cuotas de Kambi
+        id: kambi
+        continue-on-error: true
+        run: python -m futbol.datos.kambi
+      - name: Consenso de casas (The Odds API)
+        id: consenso
+        continue-on-error: true
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python -m futbol.datos.oddsapi
+      - name: Props de jugador (The Odds API)
+        id: props
+        continue-on-error: true
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python -m futbol.datos.oddsapi_props
+      - name: Simular partidos por empezar
+        id: sim
+        continue-on-error: true
+        run: python -m futbol.build_site_futbol champions --solo-futuros
+      - name: Estado, publicar y avisar
+        if: always()
+        env:
+          ONESIGNAL_REST_API_KEY: ${{ secrets.ONESIGNAL_REST_API_KEY }}
+          HOOK: ${{ secrets.CF_DEPLOY_HOOK_NCDATA }}
+        run: |
+          git config user.name "ncdata-bot"
+          git config user.email "ncdata-bot@users.noreply.github.com"
+          git add futbol/champions docs/champions
+          mkdir -p futbol/champions/nube
+          # En corridas a mano (o al cambiar esta acción) siempre se deja el estado, para saber qué funcionó.
+          if git diff --cached --quiet && [ "${{ github.event_name }}" = "schedule" ]; then
+            echo "Sin cambios en datos ni web: no se publica (estado: hist=${{ steps.hist.outcome }} prox=${{ steps.prox.outcome }} kambi=${{ steps.kambi.outcome }} sim=${{ steps.sim.outcome }})"
+            exit 0
+          fi
+          cat > futbol/champions/nube/estado.json <<JSON
+          {"corrida": "$(date -u +%Y-%m-%dT%H:%MZ)", "fotmob_historico": "${{ steps.hist.outcome }}", "fotmob_proximos": "${{ steps.prox.outcome }}",
+           "kambi": "${{ steps.kambi.outcome }}", "consenso": "${{ steps.consenso.outcome }}", "props": "${{ steps.props.outcome }}", "simulacion": "${{ steps.sim.outcome }}", "run": "${{ github.run_id }}"}
+          JSON
+          git add futbol/champions/nube/estado.json
+          git commit -m "Jornada en la nube: datos, cuotas y simulación ($(date -u +%H:%M) UTC)"
+          git pull --rebase -X theirs origin main   # si chocan los datos generados, gana esta corrida (es la más nueva)
+          BEFORE=$(git rev-parse HEAD~1)
+          git push origin HEAD:main
+          # El push con el token de Actions no dispara ncdata.yml: se pide el redespliegue de Cloudflare aquí.
+          if [ -n "$HOOK" ]; then if curl -fsS -X POST "$HOOK" > /dev/null; then echo "Redespliegue pedido."; else echo "::warning::El deploy hook de Cloudflare falló"; fi; fi
+          # Los push hechos con el token de Actions no disparan otras acciones: los avisos se mandan aquí mismo.
+          python -m futbol.avisos_futbol --before "$BEFORE"
