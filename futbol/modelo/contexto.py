@@ -19,15 +19,29 @@ from .base import ZONAS, SITUACIONES, ESPEJO
 FORMA_W = 0.35          # peso de los últimos 10 frente a la temporada (forma ruidosa en fútbol: README §3.3.7)
 TRAMO_K = 40            # eventos: perfil por tramos del equipo frente al de la liga
 DERBIS = {
-    frozenset(("INT", "MIL")): "Derby della Madonnina",
-    frozenset(("JUV", "INT")): "Derby d'Italia",
-    frozenset(("ROM", "LAZ")): "Derby della Capitale",
-    frozenset(("JUV", "TOR")): "Derby della Mole",
-    frozenset(("GEN", "SAM")): "Derby della Lanterna",
-    frozenset(("NAP", "ROM")): "Derby del Sole",
-    frozenset(("JUV", "MIL")): "Clásico",
-    frozenset(("FIO", "JUV")): "Rivalidad",
-    frozenset(("ATA", "BRE")): "Derby lombardo",
+    frozenset(("MCI", "MUN")): "Derbi de Mánchester",
+    frozenset(("LIV", "EVE")): "Derbi de Merseyside",
+    frozenset(("ARS", "TOT")): "Derbi del norte de Londres",
+    frozenset(("LIV", "MUN")): "Clásico del noroeste",
+    frozenset(("NEW", "SUN")): "Derbi Tyne-Wear",
+    frozenset(("AVL", "WOL")): "Derbi de las Midlands",
+    frozenset(("NFO", "LEI")): "Derbi de East Midlands",
+    frozenset(("CRY", "BHA")): "Derbi M23",
+    frozenset(("LEE", "MUN")): "Rivalidad de las Rosas",
+    frozenset(("CHE", "TOT")): "Derbi de Londres",
+    frozenset(("CHE", "ARS")): "Derbi de Londres",
+    frozenset(("WHU", "TOT")): "Derbi de Londres",
+    frozenset(("WHU", "CHE")): "Derbi de Londres",
+    frozenset(("WHU", "ARS")): "Derbi de Londres",
+    frozenset(("CHE", "FUL")): "Derbi del oeste de Londres",
+    frozenset(("FUL", "BRE")): "Derbi del oeste de Londres",
+    frozenset(("CHE", "BRE")): "Derbi del oeste de Londres",
+    frozenset(("CRY", "WHU")): "Derbi de Londres",
+    frozenset(("CRY", "ARS")): "Derbi de Londres",
+    frozenset(("CRY", "CHE")): "Derbi de Londres",
+    frozenset(("CRY", "TOT")): "Derbi de Londres",
+    frozenset(("IPS", "NOR")): "Derbi de East Anglia",
+    frozenset(("COV", "AVL")): "Derbi de las Midlands",
 }
 
 

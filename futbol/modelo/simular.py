@@ -66,7 +66,9 @@ class Equipo:
         wf = self.w["faltas_cometidas"][self.xi] if self.xi else self.w["faltas_cometidas"]
         apf_xi = apf[self.xi] if self.xi else apf
         sin_falta = P.AMARILLA_SIN_FALTA * arb["mult_amarillas"] * (P.DERBI_TARJETAS if derbi else 1.0)
-        objetivo = max(0.3, self.esp["amarillas"] - sin_falta)
+        # AJUSTE_AMARILLAS compensa las que la simulación pierde (el amonestado se cuida, tope de prob. por falta,
+        # expulsados): sin él la media simulada quedaba ~12% por debajo del esperado (backtest Premier 2024-26)
+        objetivo = max(0.3, self.esp["amarillas"] * P.AJUSTE_AMARILLAS - sin_falta)
         por_falta_media = float((apf_xi * wf).sum() / max(1e-9, wf.sum()))
         self.p_am = np.clip(apf * objetivo / max(1e-6, por_falta_media * self.esp["faltas"]), 0.0, 0.6)
         self.am_sin_falta = sin_falta
@@ -203,7 +205,12 @@ def simular(pid, A, B, N=None, local_es_A=True):
             lr = lam("remates")[:, None] * w / den
             rem = rng.poisson(lr)
             pue = rng.binomial(rem, e.acc[None, :])
-            gol = rng.binomial(pue, e.conv)
+            # conversión a gol: la gamma del partido y el estado del marcador ya movieron los remates; GAMMA_GOLES y
+            # ESTADO_GOLES deciden cuánto de eso pasa a los goles (backtest Premier: los goles reales son casi Poisson)
+            conv = e.conv * g_eq[t] ** (P.GAMMA_GOLES - P.GAMMA_EXP.get("remates", 1.0))
+            if P.ESTADO_GOLES != 1.0 and m >= P.ESTADO_DESDE_MIN:
+                conv = conv * np.array(P.ESTADO["remates"])[est_idx] ** (P.ESTADO_GOLES - 1.0)
+            gol = rng.binomial(pue, np.clip(conv, 0.0, 0.95)[:, None])
             jug[t]["remates"] += rem
             jug[t]["remates_puerta"] += pue
             jug[t]["goles"] += gol

@@ -1,8 +1,8 @@
 """Backtest jornada a jornada: el modelo predice cada partido ya jugado usando SOLO lo que se sabía antes.
 
-    python -m futbol.backtest champions                       # temporada actual, desde la jornada 4
-    python -m futbol.backtest champions --desde 2 --sims 2000 --temporada 2026-27
-    python -m futbol.backtest champions --sin-alineacion      # como en la previa (sin XI oficial)
+    python -m futbol.backtest premier                       # temporada actual, desde la jornada 4
+    python -m futbol.backtest premier --desde 2 --sims 2000 --temporada 2026-27
+    python -m futbol.backtest premier --sin-alineacion      # como en la previa (sin XI oficial)
 
 Por defecto cada partido se simula con la alineación oficial (es lo que habrá 30-45 min antes, cuando se
 publican los picks de jugadores). Mide:

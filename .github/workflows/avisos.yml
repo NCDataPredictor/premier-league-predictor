@@ -1,6 +1,6 @@
-# Avisos al celular de la Champions (y futuras ligas): jornada lista y alineaciones confirmadas.
+# Avisos al celular de la Premier League (y futuras ligas): jornada lista y alineaciones confirmadas.
 # Necesita el secreto ONESIGNAL_REST_API_KEY (el mismo del repo de la NBA). El App ID está en docs/push.json.
-# "Run workflow" (a mano) manda un aviso de prueba a los suscritos a la Champions.
+# "Run workflow" (a mano) manda un aviso de prueba a los suscritos a la Premier League.
 name: Avisos fútbol
 on:
   push:
@@ -11,7 +11,7 @@ on:
       mensaje:
         description: Texto del aviso de prueba
         required: false
-        default: "Prueba: así te llegará un aviso de la Champions."
+        default: "Prueba: así te llegará un aviso de la Premier League."
 jobs:
   enviar:
     runs-on: ubuntu-latest

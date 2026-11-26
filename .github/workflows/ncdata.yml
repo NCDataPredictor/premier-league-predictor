@@ -1,7 +1,7 @@
-# Cada push a main redepliega ncdatapredictor.pages.dev (que copia esta web en /champions/ durante su build).
+# Cada push a main redepliega ncdatapredictor.pages.dev (que copia esta web en /premier/ durante su build).
 # Necesita el secreto CF_DEPLOY_HOOK_NCDATA (deploy hook del proyecto "ncdatapredictor" en Cloudflare Pages);
 # sin el secreto no hace nada.
-name: Actualizar NCData Predictor (/champions)
+name: Actualizar NCData Predictor (/premier)
 on:
   push:
     branches: [main]

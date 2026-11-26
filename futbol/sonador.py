@@ -1,4 +1,4 @@
-"""Parlay soñador de la Champions: una combinada larga por día de partidos, para soñar.
+"""Parlay soñador de la Premier League: una combinada larga por día de partidos, para soñar.
 
 Pedido de Nicolas (24-nov-2026), copiando la idea de la NBA: con tantos partidos por día, una combinada con cuota
 total entre CUOTA_TOTAL[0] y CUOTA_TOTAL[1], armada con las líneas más probables que tienen cuota real de la casa

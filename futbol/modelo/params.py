@@ -1,11 +1,11 @@
-"""Parámetros del modelo de fútbol (Serie A primero).
+"""Parámetros del modelo de fútbol (Premier League; base: los de la Serie A).
 
 Igual que en model.py de la NBA: cada constante lleva el porqué. Son valores de partida razonables para Serie A,
 NO calibrados todavía. Regla del proyecto: ningún cambio de parámetros entra sin backtest fuera de muestra
 (log loss frente a la casa, calibración, % fuera de p10-p90).
 """
 
-MODEL_VERSION = "futbol-0.1"
+MODEL_VERSION = "futbol-0.2"   # Premier: goles anclados al mercado + ajuste de amarillas (ver README)
 
 # --- Simulación -------------------------------------------------------------------------------------------
 SIMS = 20000            # simulaciones por partido (semilla fija por partido, como en NBA)
@@ -51,6 +51,10 @@ ROJA_RIVAL = 1.22       # tasa ofensiva del rival del equipo con un expulsado
 GAMMA_COMUN = 25.0      # forma de la gamma común (ritmo del partido)
 GAMMA_EQUIPO = 14.0     # forma de la gamma propia de cada equipo
 GAMMA_EXP = {"pases": 0.25, "remates": 0.5, "faltas": 0.4, "corners": 0.7}   # fracción de la gamma por estadística
+# Goles: fracción de la gamma y del efecto del marcador que pasa de los remates a los goles (1 = todo, como en Serie A
+# futbol-0.1, donde los goles heredaban la gamma de los remates: GAMMA_GOLES = GAMMA_EXP["remates"]).
+GAMMA_GOLES = 0.5
+ESTADO_GOLES = 1.0
 
 # --- Tarjetas ----------------------------------------------------------------------------------------------
 P_SEGUNDA_AMARILLA_ROJA = 1.0   # una segunda amarilla del mismo jugador es roja (regla)
@@ -58,6 +62,7 @@ ROJA_DIRECTA_POR_FALTA = 0.0025  # rojas directas por falta (Serie A ~0,1 rojas 
 AMARILLA_SIN_FALTA = 0.55       # amarillas por partido y equipo que no vienen de una falta (protestas, pérdida de tiempo)
 CAUTELA_FALTAS = 0.65           # el jugador amonestado comete ~35% menos faltas
 CAUTELA_AMARILLA = 0.35         # y sus faltas son menos tarjeteables (evita un exceso de dobles amarillas)
+AJUSTE_AMARILLAS = 1.2          # multiplicador del objetivo de amarillas por falta (1,0 = futbol-0.1)
 DERBI_TARJETAS = 1.15           # prior del efecto derbi en tarjetas y faltas antes de medirlo con H2H
 DERBI_GOLES = 0.95              # derbis algo más cerrados
 
@@ -81,16 +86,12 @@ SUPLENTE_ORO = True
 
 # --- Mercado (comun/mercado.py) ----------------------------------------------------------------------------
 MKT_W = 0.20            # peso del modelo en la mezcla con la casa (README §3.4: empezar entre 0,15 y 0,25)
+# Goles esperados cuando hay 1X2 de la casa: λ = λ_mercado^(1-a) · λ_fuerza^a (backtest Premier 2024-26: a = 0,15).
+PESO_FUERZA_PROPIA = 0.15
 VALUE_EV = 0.03
 MIN_P = 0.50
 # props de jugador con cuota de un solo lado (escaleras "N+" de Betano): margen que se le supone a la casa.
 # 0 = no se usan (regla original: solo cuota a dos lados).
 MARGEN_UN_LADO = 0.08
-# Champions: remates, córners y pases salen de partidos de liga local (rivales de otro nivel). Se anclan al mercado:
-# r = goles del mercado / goles que darían las tasas de liga local; la estadística se multiplica por r**β.
-ANCLA_MERCADO = {"remates": 0.6, "remates_puerta": 0.75, "corners": 0.5, "pases": 0.25}
-ANCLA_LIMITES = (0.4, 2.5)
-# Peso de cada partido en las tasas de equipo y jugador según la competición (el resto pesa 1).
-PESO_COMPETICION = {"Champions League": 2.5}
 MAX_PICKS_JORNADA = 12
 MAX_PICKS_JUGADOR = 2

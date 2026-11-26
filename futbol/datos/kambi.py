@@ -1,14 +1,14 @@
-"""Cuotas de Kambi (motor de Unibet, 888 y otras casas) para la Champions: fuente accesible sin el PC.
+"""Cuotas de Kambi (motor de Unibet, 888 y otras casas) para la Premier League: fuente accesible sin el PC.
 
 Betano solo se puede leer desde el PC de Nicolas. Kambi publica sus cuotas en un JSON público (sin clave) con casi
 los mismos mercados de equipo: goles, córners, tarjetas, remates, remates a puerta, faltas y fueras de lugar, total y
 por equipo. Se guarda en el mismo formato que el extracto de Betano (futbol/datos/betano.py), así build_site_futbol
 lo usa igual:
 
-    python -m futbol.datos.kambi                    # todos los partidos de futbol/champions/partidos/ que no empezaron
+    python -m futbol.datos.kambi                    # todos los partidos de futbol/premier/partidos/ que no empezaron
     python -m futbol.datos.kambi --forzar           # reemplaza también extractos de Betano (por defecto se respetan)
 
-Salida: futbol/champions/cuotas/<id>.json con "casa": "Kambi (Unibet)". Si ya hay un extracto de Betano de ese
+Salida: futbol/premier/cuotas/<id>.json con "casa": "Kambi (Unibet)". Si ya hay un extracto de Betano de ese
 partido se deja (es la casa de Nicolas) salvo --forzar.
 """
 import argparse
@@ -26,17 +26,17 @@ from futbol.datos.betano import NOMBRES  # noqa: E402
 
 BASE = "https://eu-offering-api.kambicdn.com/offering/v2018/ub"
 Q = "lang=en_GB&market=ES"
-# Rushbet y BetPlay (Colombia) usan Kambi: si el catálogo de Unibet no trae la Champions, se prueban estos.
+# Rushbet y BetPlay (Colombia) usan Kambi: si el catálogo de Unibet no trae la Premier, se prueban estos.
 OFERTAS = [("https://eu-offering-api.kambicdn.com/offering/v2018/ub", "lang=en_GB&market=ES", "Kambi (Unibet)"),
            ("https://eu-offering-api.kambicdn.com/offering/v2018/rsico", "lang=en_GB&market=CO", "Kambi (Rushbet)"),
            ("https://eu-offering-api.kambicdn.com/offering/v2018/betplay", "lang=en_GB&market=CO", "Kambi (BetPlay)"),
            ("https://us1-offering-api.kambicdn.com/offering/v2018/rsico", "lang=en_GB&market=CO", "Kambi (Rushbet)")]
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Safari/537.36"
-LIGAS = {"champions": "football/champions_league"}
+LIGAS = {"premier": "football/england/premier_league"}   # verificar en el árbol de grupos de Kambi
 CASA = "Kambi (Unibet)"
 
 # Nombres en inglés de Kambi que no están en betano.NOMBRES
-NOMBRES_K = NOMBRES   # Nombres() de equipos_ucl ya reconoce los nombres en inglés de Kambi
+NOMBRES_K = NOMBRES   # Nombres() de equipos_epl ya reconoce los nombres en inglés de Kambi
 
 # Mercado (inglés de Kambi, sin el sufijo "(Settled using Opta data)") → nombre de mercado del extracto (como Betano)
 MERCADOS = {"Total Goals": "Goles totales Más/Menos", "Total Corners": "Tiros de esquina Menos/Más",
@@ -51,9 +51,9 @@ def _get(url):
         return json.loads(r.read().decode("utf-8"))
 
 
-def _ruta_champions():
-    """Busca en el árbol de grupos de Kambi la ruta de la Champions de la UEFA (por si cambia el nombre).
-    Hay otras "Champions League" (Golfo, AFC, CONCACAF, femenina, juvenil): se toma la de nombre exacto o con UEFA."""
+def _ruta_liga():
+    """Busca en el árbol de grupos de Kambi la ruta de la Premier League inglesa (por si cambia el nombre).
+    Hay otras "Premier League" (Escocia, Rusia, Egipto, Kenia, la de reservas, la femenina): se toma la de Inglaterra."""
     g = _get(f"{BASE}/group.json?{Q}")
     pila = [(g.get("group") or g, [])]
     cands = []
@@ -61,10 +61,10 @@ def _ruta_champions():
         n, ruta = pila.pop()
         r = ruta + ([n["termKey"]] if n.get("termKey") else [])
         nom = (n.get("englishName") or n.get("name") or "").lower().strip()
-        if r and r[0] == "football" and "champions league" in nom:
-            otra = any(x in nom for x in ("gulf", "afc", "asian", "concacaf", "caf", "women", "youth", "u19", "arab", "ofc"))
+        if r and r[0] == "football" and "premier league" in nom and "england" in r:
+            otra = any(x in nom for x in ("women", "u21", "u23", "u18", "2", "cup", "international"))
             if not otra:
-                cands.append((0 if nom in ("champions league", "uefa champions league") else 1, len(r), "/".join(r), nom))
+                cands.append((0 if nom == "premier league" else 1, len(r), "/".join(r), nom))
         for h in n.get("groups") or []:
             pila.append((h, r))
     cands.sort()
@@ -72,7 +72,7 @@ def _ruta_champions():
     return cands[0][2] if cands else None
 
 
-def eventos(liga="champions"):
+def eventos(liga="premier"):
     """Partidos de la liga en el primer catálogo de Kambi que responda (Unibet, Rushbet, BetPlay)."""
     global BASE, Q, CASA
     d, err = None, None
@@ -83,7 +83,7 @@ def eventos(liga="champions"):
         except Exception as e:  # noqa: BLE001
             err = e
             try:
-                ruta = _ruta_champions()
+                ruta = _ruta_liga()
                 d = _get(f"{BASE}/listView/{ruta}/all/matches.json?{Q}&useCombined=true") if ruta else None
             except Exception as e2:  # noqa: BLE001
                 err, d = e2, None
@@ -181,7 +181,7 @@ def _betano_nombre(cod):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("liga", nargs="?", default="champions")
+    ap.add_argument("liga", nargs="?", default="premier")
     ap.add_argument("--forzar", action="store_true")
     a = ap.parse_args()
     evs = eventos(a.liga)

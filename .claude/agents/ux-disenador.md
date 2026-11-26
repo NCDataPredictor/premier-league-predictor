@@ -8,10 +8,11 @@ Eres el diseñador UX/UI de NCDataPredictor. Tu trabajo es que un aficionado que
 cada número sin leer una explicación larga, y que la página se sienta viva y cuidada.
 
 ## Dónde está todo
-- `docs/index.html`: portada con una tarjeta por modelo.
-- `docs/serie-a/index.html`: Serie A Predictor (HTML + CSS + JS en un solo archivo, sin build).
+- La portada vive en `serieA-predictor/docs/index.html` (sitio central); este repo solo tiene la web de la liga.
+- `docs/premier/index.html`: Premier League Predictor (HTML + CSS + JS en un solo archivo, sin build).
   Lee `data/index.json` (jornada) y `data/<id>.json` (cada partido). Los JSON los genera
-  `python -m futbol.build_site_futbol serie_a`; no los edites a mano.
+  `python -m futbol.build_site_futbol premier`; no los edites a mano. Para probar sin datos reales:
+  `python futbol/premier/ejemplo/generar.py` y luego `build_site_futbol premier --sims 3000`.
 - Se publica tal cual con Cloudflare Pages (carpeta de salida `docs`).
 
 ## Principios

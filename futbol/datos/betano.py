@@ -13,8 +13,8 @@ por línea con cuota a los dos lados. Nunca se inventa una cuota: si falta un la
 """
 
 # Nombre en Betano → código del equipo (el mismo que usa el histórico).
-from futbol.datos.equipos_ucl import Nombres  # noqa: E402
-NOMBRES = Nombres()   # cualquier alias de los 36 equipos de la Champions → código
+from futbol.datos.equipos_epl import Nombres  # noqa: E402
+NOMBRES = Nombres()   # cualquier alias de los equipos de la Premier → código
 
 # Mercado de Betano → estadística del modelo
 STAT = {

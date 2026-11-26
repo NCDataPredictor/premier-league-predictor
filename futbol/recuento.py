@@ -1,6 +1,6 @@
 """Recuento de los picks publicados de una liga contra los resultados reales.
 
-Uso:  python -m futbol.recuento champions
+Uso:  python -m futbol.recuento premier
 
 Lee lo publicado (docs/<web>/data/<partido>.json: picks, 1X2 del modelo y consenso de casas) y el histórico de
 FotMob (futbol/<liga>/historico/*.json). Cada pick de un partido ya jugado se liquida a 1 unidad y se guarda en
@@ -17,7 +17,7 @@ from collections import defaultdict
 from datetime import datetime, timezone
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-WEB = {"champions": "champions"}
+WEB = {"premier": "premier"}
 STAT_JUG = {"faltas": "faltas_cometidas"}   # nombre del stat del pick -> campo del histórico de jugadores
 
 
@@ -203,4 +203,4 @@ def _grupo(xs, campo):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv) > 1 else "champions")
+    main(sys.argv[1] if len(sys.argv) > 1 else "premier")

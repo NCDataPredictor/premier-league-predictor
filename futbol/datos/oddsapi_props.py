@@ -3,10 +3,10 @@
 El modelo ya proyecta remates, remates a puerta y atajadas de cada jugador; para que un prop sea pick hace falta
 una cuota real a los dos lados (Más/Menos). Betano solo se lee desde el PC; esto funciona desde GitHub Actions.
 
-    python -m futbol.datos.oddsapi_props            # partidos de futbol/champions/partidos/ que no empezaron
+    python -m futbol.datos.oddsapi_props            # partidos de futbol/premier/partidos/ que no empezaron
 
-Costo: cada partido cuesta (mercados × regiones) créditos del plan de 500/mes compartido con la Serie A
-(aquí hasta 3 mercados × 1 región = 3 por partido, ~54 por jornada de 18; un 422 no cobra). Por eso se consulta como mucho una vez cada MIN_HORAS.
+Costo: cada partido cuesta (mercados × regiones) créditos del plan de 500/mes compartido con la Serie A y la Champions
+(aquí hasta 3 mercados × 1 región = 3 por partido, ~30 por jornada de 10; un 422 no cobra). Por eso se consulta como mucho una vez cada MIN_HORAS.
 Escribe en cada partidos/<id>.json: "props": {"Jugador": {"remates_puerta": [[línea, más, menos], ...], ...}},
 con la mediana de las casas que dan los dos lados de esa línea. Nunca inventa una cuota.
 """
@@ -22,14 +22,16 @@ from datetime import datetime, timedelta, timezone
 RAIZ = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, RAIZ)
 
-from futbol.datos.equipos_ucl import codigo  # noqa: E402
+from futbol.datos.equipos_epl import codigo  # noqa: E402
 
-BASE = "https://api.the-odds-api.com/v4/sports/soccer_uefa_champs_league"
-REGIONES = "eu"
+BASE = "https://api.the-odds-api.com/v4/sports/soccer_epl"
+# Casas del Reino Unido (bet365, William Hill, Paddy Power…): en la Premier suelen dar remates de jugador; las "eu" no
+# los daban en la Champions (24-nov-2026). Si la primera consulta no trae props, se deja de gastar (ver main).
+REGIONES = "uk"
 # mercado de The Odds API → estadística del modelo
 MERCADOS = {"player_shots_on_target": "remates_puerta", "player_shots": "remates", "player_goalkeeper_saves": "atajadas"}
 MIN_HORAS = 5
-ESTADO = os.path.join(RAIZ, "futbol", "champions", "nube", "props_estado.json")   # fuera de consenso/: ese glob solo lee fotos
+ESTADO = os.path.join(RAIZ, "futbol", "premier", "nube", "props_estado.json")   # fuera de consenso/: ese glob solo lee fotos
 
 
 def _get(url):
@@ -74,7 +76,7 @@ def main():
             est = json.load(fh)
         ult = datetime.fromisoformat(est["ultima"])
         if est.get("partidos_con_props") == 0 and not os.environ.get("PROPS_FORZAR"):
-            # 24-nov-2026: las casas "eu" no dan remates de jugador en la Champions y cada consulta cobra igual.
+            # si las casas no dan remates de jugador (pasó con las "eu" en la Champions), cada consulta cobra igual.
             print("La última consulta no trajo ningún prop: no se gasta más (PROPS_FORZAR=1 para reintentar).")
             return
         if ahora - ult < timedelta(hours=MIN_HORAS) and not os.environ.get("PROPS_FORZAR"):
@@ -87,7 +89,7 @@ def main():
     por_par = {(codigo(e["home_team"]), codigo(e["away_team"])): e for e in eventos}
     n_ok = 0
     no_hay = set()
-    for f in sorted(glob.glob(os.path.join(RAIZ, "futbol", "champions", "partidos", "*.json"))):
+    for f in sorted(glob.glob(os.path.join(RAIZ, "futbol", "premier", "partidos", "*.json"))):
         with open(f, encoding="utf-8") as fh:
             p = json.load(fh)
         m = p["match"]
@@ -97,7 +99,7 @@ def main():
         if not e:
             print(f"{p['id']}: no está en The Odds API")
             continue
-        # un mercado por consulta: si la API no ofrece uno para la Champions (422, no cobra), los demás siguen
+        # un mercado por consulta: si la API no ofrece uno para la Premier (422, no cobra), los demás siguen
         d = {"bookmakers": []}
         for mk in MERCADOS:
             if mk in no_hay:
