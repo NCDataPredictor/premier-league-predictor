@@ -1,0 +1,123 @@
+{
+ "id": "2026-11-27-NFO-CHE",
+ "fuente": "fotmob",
+ "fuente_id": "5795533",
+ "match": {
+  "liga": "premier",
+  "temporada": "2026-27",
+  "jornada": 12,
+  "fecha": "2026-11-27",
+  "hora_local": "20:00",
+  "hora_bogota": "15:00",
+  "utc": "2026-11-27T20:00:00Z",
+  "local": "NFO",
+  "visitante": "CHE",
+  "estadio": "The City Ground",
+  "neutral": false,
+  "competicion": "liga"
+ },
+ "contexto": {
+  "arbitro": "Andy Madley",
+  "arbitro_fotmob": {
+   "nombre": "Andy Madley",
+   "partidos": 42,
+   "amarillas_pp": 3.45,
+   "liga_amarillas_pp": 3.87,
+   "faltas_pp": 22.93,
+   "rojas": 5,
+   "penaltis": 8
+  },
+  "clima": {
+   "temperature": 3,
+   "windSpeed": 4,
+   "windDirectionCardinal": "SE",
+   "iconCode": 11,
+   "relativeHumidity": 89,
+   "precipChance": 62,
+   "precipitation": 0.4,
+   "snow": 0,
+   "cloudCover": 100,
+   "description": "Light Rain",
+   "apiUsed": "forecast",
+   "lastUpdated": "2026-11-26T14:00:01Z",
+   "localizedKey": "weather_condition_light_rain",
+   "defaultTitle": "Light Rain"
+  }
+ },
+ "alineaciones": {
+  "estado": null
+ },
+ "bajas": {
+  "NFO": [
+   {
+    "jugador": "NFO-1622290",
+    "nombre": "Nicolò Savona",
+    "motivo": "lesion",
+    "regreso": "Doubtful",
+    "p_juega": 0.5
+   },
+   {
+    "jugador": "NFO-827315",
+    "nombre": "Nicolás Domínguez",
+    "motivo": "lesion",
+    "regreso": "Late December 2026",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "NFO-846383",
+    "nombre": "Callum Hudson-Odoi",
+    "motivo": "lesion",
+    "regreso": "Mid December 2026",
+    "p_juega": 0.0
+   }
+  ],
+  "CHE": [
+   {
+    "jugador": "CHE-1413846",
+    "nombre": "Jorrel Hato",
+    "motivo": "lesion",
+    "regreso": "Mid November 2026",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "CHE-950485",
+    "nombre": "Maxence Lacroix",
+    "motivo": "lesion",
+    "regreso": "Early January 2027",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "CHE-1137668",
+    "nombre": "Moisés Caicedo",
+    "motivo": "lesion",
+    "regreso": "Early December 2026",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "CHE-807729",
+    "nombre": "Reece James",
+    "motivo": "lesion",
+    "regreso": "Mid January 2027",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "CHE-1113692",
+    "nombre": "Jamie Gittens",
+    "motivo": "lesion",
+    "regreso": "Back in training",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "CHE-1021382",
+    "nombre": "João Pedro",
+    "motivo": "lesion",
+    "regreso": "Late November 2026",
+    "p_juega": 0.0
+   }
+  ]
+ },
+ "cuotas": {
+  "casas": []
+ },
+ "props": {}
+}

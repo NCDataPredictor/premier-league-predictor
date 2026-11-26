@@ -1,0 +1,88 @@
+{
+ "id": "2026-11-28-IPS-AVL",
+ "fuente": "fotmob",
+ "fuente_id": "5795530",
+ "match": {
+  "liga": "premier",
+  "temporada": "2026-27",
+  "jornada": 12,
+  "fecha": "2026-11-28",
+  "hora_local": "17:30",
+  "hora_bogota": "12:30",
+  "utc": "2026-11-28T17:30:00Z",
+  "local": "IPS",
+  "visitante": "AVL",
+  "estadio": "Portman Road",
+  "neutral": false,
+  "competicion": "liga"
+ },
+ "contexto": {
+  "arbitro": "Michael Salisbury",
+  "arbitro_fotmob": {
+   "nombre": "Michael Salisbury",
+   "partidos": 29,
+   "amarillas_pp": 3.62,
+   "liga_amarillas_pp": 3.87,
+   "faltas_pp": 22.31,
+   "rojas": 1,
+   "penaltis": 9
+  },
+  "clima": {
+   "temperature": 6,
+   "windSpeed": 6,
+   "windDirectionCardinal": "SSE",
+   "iconCode": 11,
+   "relativeHumidity": 88,
+   "precipChance": 44,
+   "precipitation": 0.2,
+   "snow": 0,
+   "cloudCover": 100,
+   "description": "Light Rain",
+   "apiUsed": "forecast",
+   "lastUpdated": "2026-11-26T06:00:06Z",
+   "localizedKey": "weather_condition_light_rain",
+   "defaultTitle": "Light Rain"
+  }
+ },
+ "alineaciones": {
+  "estado": null
+ },
+ "bajas": {
+  "IPS": [
+   {
+    "jugador": "IPS-980381",
+    "nombre": "Leif Davis",
+    "motivo": "lesion",
+    "regreso": "Late December 2026",
+    "p_juega": 0.0
+   }
+  ],
+  "AVL": [
+   {
+    "jugador": "AVL-1051097",
+    "nombre": "Matteo Ruggeri",
+    "motivo": "lesion",
+    "regreso": "Mid December 2026",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "AVL-729731",
+    "nombre": "Matty Cash",
+    "motivo": "lesion",
+    "regreso": "Late November 2026",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "AVL-1185748",
+    "nombre": "Amadou Onana",
+    "motivo": "lesion",
+    "regreso": "Mid April 2027",
+    "p_juega": 0.0
+   }
+  ]
+ },
+ "cuotas": {
+  "casas": []
+ },
+ "props": {}
+}

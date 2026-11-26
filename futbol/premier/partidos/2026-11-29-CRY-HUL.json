@@ -1,0 +1,144 @@
+{
+ "id": "2026-11-29-CRY-HUL",
+ "fuente": "fotmob",
+ "fuente_id": "5795527",
+ "match": {
+  "liga": "premier",
+  "temporada": "2026-27",
+  "jornada": 12,
+  "fecha": "2026-11-29",
+  "hora_local": "14:05",
+  "hora_bogota": "09:05",
+  "utc": "2026-11-29T14:05:00Z",
+  "local": "CRY",
+  "visitante": "HUL",
+  "estadio": "Selhurst Park",
+  "neutral": false,
+  "competicion": "liga"
+ },
+ "contexto": {
+  "arbitro": "Jarred Gillett",
+  "arbitro_fotmob": {
+   "nombre": "Jarred Gillett",
+   "partidos": 41,
+   "amarillas_pp": 3.85,
+   "liga_amarillas_pp": 3.87,
+   "faltas_pp": 20.93,
+   "rojas": 1,
+   "penaltis": 9
+  },
+  "clima": {
+   "temperature": 10,
+   "windSpeed": 3,
+   "windDirectionCardinal": "WSW",
+   "iconCode": 34,
+   "relativeHumidity": 79,
+   "precipChance": 6,
+   "precipitation": 0,
+   "snow": 0,
+   "cloudCover": 23,
+   "description": "Mostly Sunny",
+   "apiUsed": "forecast",
+   "lastUpdated": "2026-11-26T15:00:01Z",
+   "localizedKey": "weather_condition_sunny",
+   "defaultTitle": "Sunny"
+  }
+ },
+ "alineaciones": {
+  "estado": null
+ },
+ "bajas": {
+  "CRY": [
+   {
+    "jugador": "CRY-1187506",
+    "nombre": "Chadi Riad",
+    "motivo": "lesion",
+    "regreso": "Late June 2027",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "CRY-664444",
+    "nombre": "Takehiro Tomiyasu",
+    "motivo": "lesion",
+    "regreso": "Late November 2026",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "CRY-952095",
+    "nombre": "Óscar Mingueza",
+    "motivo": "lesion",
+    "regreso": "Doubtful",
+    "p_juega": 0.5
+   },
+   {
+    "jugador": "CRY-1047676",
+    "nombre": "Yéremi Pino",
+    "motivo": "sancion",
+    "regreso": "Late November 2026",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "CRY-771294",
+    "nombre": "Ismaïla Sarr",
+    "motivo": "lesion",
+    "regreso": "Late November 2026",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "CRY-706297",
+    "nombre": "Jean-Philippe Mateta",
+    "motivo": "sancion",
+    "regreso": "Late November 2026",
+    "p_juega": 0.0
+   }
+  ],
+  "HUL": [
+   {
+    "jugador": "HUL-1331703",
+    "nombre": "Charlie Hughes",
+    "motivo": "lesion",
+    "regreso": "Late November 2026",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "HUL-538112",
+    "nombre": "Matt Targett",
+    "motivo": "lesion",
+    "regreso": "Mid December 2026",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "HUL-1178514",
+    "nombre": "Eliot Matazo",
+    "motivo": "lesion",
+    "regreso": "Early February 2027",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "HUL-915102",
+    "nombre": "Hidemasa Morita",
+    "motivo": "lesion",
+    "regreso": "Late November 2026",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "HUL-1515977",
+    "nombre": "Ilyas Ansah",
+    "motivo": "lesion",
+    "regreso": "Early December 2026",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "HUL-1203512",
+    "nombre": "Tim Iroegbunam",
+    "motivo": "lesion",
+    "regreso": "Late December 2026",
+    "p_juega": 0.0
+   }
+  ]
+ },
+ "cuotas": {
+  "casas": []
+ },
+ "props": {}
+}

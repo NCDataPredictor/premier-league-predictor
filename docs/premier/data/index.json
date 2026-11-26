@@ -1,0 +1,400 @@
+{
+ "liga": "Premier League",
+ "temporada": "2026-27",
+ "version": "futbol-0.2",
+ "actualizado": "2026-11-26T16:20Z",
+ "ejemplo": false,
+ "partidos": [
+  {
+   "id": "2026-11-27-NFO-CHE",
+   "fecha": "2026-11-27",
+   "hora_local": "20:00",
+   "hora_bogota": "15:00",
+   "jornada": 12,
+   "local": "NFO",
+   "visitante": "CHE",
+   "estadio": "The City Ground",
+   "derbi": null,
+   "arbitro": "Andy Madley",
+   "1x2": [
+    0.432,
+    0.289,
+    0.279
+   ],
+   "goles": 2.86,
+   "over25": 0.536,
+   "ambos": 0.603,
+   "corners": 9.64,
+   "amarillas": 4.96,
+   "marcador": [
+    "1-1",
+    0.128
+   ],
+   "n_picks": 0,
+   "picks_desde": null,
+   "ejemplo": false,
+   "n_errores": 0,
+   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "alineacion": {
+    "NFO": "prevista (últimos 10)",
+    "CHE": "prevista (últimos 10)"
+   },
+   "bajas": {
+    "NFO": 2,
+    "CHE": 6
+   }
+  },
+  {
+   "id": "2026-11-28-LEE-COV",
+   "fecha": "2026-11-28",
+   "hora_local": "15:00",
+   "hora_bogota": "10:00",
+   "jornada": 12,
+   "local": "LEE",
+   "visitante": "COV",
+   "estadio": "Elland Road",
+   "derbi": null,
+   "arbitro": "Paul Tierney",
+   "1x2": [
+    0.612,
+    0.235,
+    0.153
+   ],
+   "goles": 2.93,
+   "over25": 0.554,
+   "ambos": 0.56,
+   "corners": 7.35,
+   "amarillas": 3.49,
+   "marcador": [
+    "1-0",
+    0.117
+   ],
+   "n_picks": 5,
+   "picks_desde": null,
+   "ejemplo": false,
+   "n_errores": 2,
+   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "alineacion": {
+    "LEE": "prevista (últimos 10)",
+    "COV": "prevista (últimos 10)"
+   },
+   "bajas": {
+    "LEE": 0,
+    "COV": 4
+   }
+  },
+  {
+   "id": "2026-11-28-MUN-BRE",
+   "fecha": "2026-11-28",
+   "hora_local": "15:00",
+   "hora_bogota": "10:00",
+   "jornada": 12,
+   "local": "MUN",
+   "visitante": "BRE",
+   "estadio": "Old Trafford",
+   "derbi": null,
+   "arbitro": "Robert Jones",
+   "1x2": [
+    0.438,
+    0.27,
+    0.292
+   ],
+   "goles": 3.27,
+   "over25": 0.625,
+   "ambos": 0.675,
+   "corners": 11.2,
+   "amarillas": 4.43,
+   "marcador": [
+    "1-1",
+    0.115
+   ],
+   "n_picks": 0,
+   "picks_desde": null,
+   "ejemplo": false,
+   "n_errores": 0,
+   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "alineacion": {
+    "MUN": "prevista (últimos 10)",
+    "BRE": "prevista (últimos 10)"
+   },
+   "bajas": {
+    "MUN": 4,
+    "BRE": 4
+   }
+  },
+  {
+   "id": "2026-11-28-IPS-AVL",
+   "fecha": "2026-11-28",
+   "hora_local": "17:30",
+   "hora_bogota": "12:30",
+   "jornada": 12,
+   "local": "IPS",
+   "visitante": "AVL",
+   "estadio": "Portman Road",
+   "derbi": null,
+   "arbitro": "Michael Salisbury",
+   "1x2": [
+    0.288,
+    0.267,
+    0.445
+   ],
+   "goles": 3.37,
+   "over25": 0.644,
+   "ambos": 0.69,
+   "corners": 8.17,
+   "amarillas": 4.9,
+   "marcador": [
+    "1-1",
+    0.112
+   ],
+   "n_picks": 1,
+   "picks_desde": null,
+   "ejemplo": false,
+   "n_errores": 0,
+   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "alineacion": {
+    "IPS": "prevista (últimos 10)",
+    "AVL": "prevista (últimos 10)"
+   },
+   "bajas": {
+    "IPS": 1,
+    "AVL": 2
+   }
+  },
+  {
+   "id": "2026-11-29-EVE-LIV",
+   "fecha": "2026-11-29",
+   "hora_local": "12:00",
+   "hora_bogota": "07:00",
+   "jornada": 12,
+   "local": "EVE",
+   "visitante": "LIV",
+   "estadio": "Hill Dickinson Stadium",
+   "derbi": "Derbi de Merseyside",
+   "arbitro": "Michael Oliver",
+   "1x2": [
+    0.196,
+    0.256,
+    0.548
+   ],
+   "goles": 3.08,
+   "over25": 0.594,
+   "ambos": 0.618,
+   "corners": 10.02,
+   "amarillas": 3.45,
+   "marcador": [
+    "1-1",
+    0.113
+   ],
+   "n_picks": 2,
+   "picks_desde": null,
+   "ejemplo": false,
+   "n_errores": 0,
+   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "alineacion": {
+    "EVE": "prevista (últimos 10)",
+    "LIV": "prevista (últimos 10)"
+   },
+   "bajas": {
+    "EVE": 1,
+    "LIV": 3
+   }
+  },
+  {
+   "id": "2026-11-29-BHA-NEW",
+   "fecha": "2026-11-29",
+   "hora_local": "14:05",
+   "hora_bogota": "09:05",
+   "jornada": 12,
+   "local": "BHA",
+   "visitante": "NEW",
+   "estadio": "American Express Stadium",
+   "derbi": null,
+   "arbitro": "Simon Hooper",
+   "1x2": [
+    0.572,
+    0.24,
+    0.189
+   ],
+   "goles": 3.27,
+   "over25": 0.628,
+   "ambos": 0.639,
+   "corners": 10.71,
+   "amarillas": 4.24,
+   "marcador": [
+    "2-1",
+    0.108
+   ],
+   "n_picks": 2,
+   "picks_desde": null,
+   "ejemplo": false,
+   "n_errores": 0,
+   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "alineacion": {
+    "BHA": "prevista (últimos 10)",
+    "NEW": "prevista (últimos 10)"
+   },
+   "bajas": {
+    "BHA": 2,
+    "NEW": 3
+   }
+  },
+  {
+   "id": "2026-11-29-CRY-HUL",
+   "fecha": "2026-11-29",
+   "hora_local": "14:05",
+   "hora_bogota": "09:05",
+   "jornada": 12,
+   "local": "CRY",
+   "visitante": "HUL",
+   "estadio": "Selhurst Park",
+   "derbi": null,
+   "arbitro": "Jarred Gillett",
+   "1x2": [
+    0.479,
+    0.288,
+    0.233
+   ],
+   "goles": 2.66,
+   "over25": 0.493,
+   "ambos": 0.56,
+   "corners": 9.77,
+   "amarillas": 4.78,
+   "marcador": [
+    "1-1",
+    0.134
+   ],
+   "n_picks": 0,
+   "picks_desde": null,
+   "ejemplo": false,
+   "n_errores": 0,
+   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "alineacion": {
+    "CRY": "prevista (últimos 10)",
+    "HUL": "prevista (últimos 10)"
+   },
+   "bajas": {
+    "CRY": 6,
+    "HUL": 3
+   }
+  },
+  {
+   "id": "2026-11-29-FUL-BOU",
+   "fecha": "2026-11-29",
+   "hora_local": "14:05",
+   "hora_bogota": "09:05",
+   "jornada": 12,
+   "local": "FUL",
+   "visitante": "BOU",
+   "estadio": "Craven Cottage",
+   "derbi": null,
+   "arbitro": "Stuart Attwell",
+   "1x2": [
+    0.332,
+    0.295,
+    0.372
+   ],
+   "goles": 2.79,
+   "over25": 0.524,
+   "ambos": 0.6,
+   "corners": 9.91,
+   "amarillas": 4.36,
+   "marcador": [
+    "1-1",
+    0.135
+   ],
+   "n_picks": 1,
+   "picks_desde": null,
+   "ejemplo": false,
+   "n_errores": 0,
+   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "alineacion": {
+    "FUL": "prevista (últimos 10)",
+    "BOU": "prevista (últimos 10)"
+   },
+   "bajas": {
+    "FUL": 2,
+    "BOU": 2
+   }
+  },
+  {
+   "id": "2026-11-29-SUN-TOT",
+   "fecha": "2026-11-29",
+   "hora_local": "14:05",
+   "hora_bogota": "09:05",
+   "jornada": 12,
+   "local": "SUN",
+   "visitante": "TOT",
+   "estadio": "Stadium of Light",
+   "derbi": null,
+   "arbitro": "Peter Bankes",
+   "1x2": [
+    0.235,
+    0.297,
+    0.468
+   ],
+   "goles": 2.5,
+   "over25": 0.454,
+   "ambos": 0.531,
+   "corners": 9.09,
+   "amarillas": 5.48,
+   "marcador": [
+    "1-1",
+    0.142
+   ],
+   "n_picks": 1,
+   "picks_desde": null,
+   "ejemplo": false,
+   "n_errores": 0,
+   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "alineacion": {
+    "SUN": "prevista (últimos 10)",
+    "TOT": "prevista (últimos 10)"
+   },
+   "bajas": {
+    "SUN": 5,
+    "TOT": 4
+   }
+  },
+  {
+   "id": "2026-11-29-ARS-MCI",
+   "fecha": "2026-11-29",
+   "hora_local": "16:30",
+   "hora_bogota": "11:30",
+   "jornada": 12,
+   "local": "ARS",
+   "visitante": "MCI",
+   "estadio": "Emirates Stadium",
+   "derbi": null,
+   "arbitro": "John Brooks",
+   "1x2": [
+    0.457,
+    0.285,
+    0.258
+   ],
+   "goles": 2.76,
+   "over25": 0.515,
+   "ambos": 0.58,
+   "corners": 10.61,
+   "amarillas": 4.41,
+   "marcador": [
+    "1-1",
+    0.128
+   ],
+   "n_picks": 1,
+   "picks_desde": null,
+   "ejemplo": false,
+   "n_errores": 0,
+   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "alineacion": {
+    "ARS": "prevista (últimos 10)",
+    "MCI": "prevista (últimos 10)"
+   },
+   "bajas": {
+    "ARS": 3,
+    "MCI": 1
+   }
+  }
+ ],
+ "sonador": {}
+}

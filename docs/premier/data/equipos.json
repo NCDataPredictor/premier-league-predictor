@@ -1,0 +1,82 @@
+{
+ "ARS": {
+  "fm": 9825,
+  "nombre": "Arsenal"
+ },
+ "AVL": {
+  "fm": 10252,
+  "nombre": "Aston Villa"
+ },
+ "BHA": {
+  "fm": 10204,
+  "nombre": "Brighton & Hove Albion"
+ },
+ "BOU": {
+  "fm": 8678,
+  "nombre": "AFC Bournemouth"
+ },
+ "BRE": {
+  "fm": 9937,
+  "nombre": "Brentford"
+ },
+ "CHE": {
+  "fm": 8455,
+  "nombre": "Chelsea"
+ },
+ "COV": {
+  "fm": 8669,
+  "nombre": "Coventry City"
+ },
+ "CRY": {
+  "fm": 9826,
+  "nombre": "Crystal Palace"
+ },
+ "EVE": {
+  "fm": 8668,
+  "nombre": "Everton"
+ },
+ "FUL": {
+  "fm": 9879,
+  "nombre": "Fulham"
+ },
+ "HUL": {
+  "fm": 8667,
+  "nombre": "Hull City"
+ },
+ "IPS": {
+  "fm": 9902,
+  "nombre": "Ipswich Town"
+ },
+ "LEE": {
+  "fm": 8463,
+  "nombre": "Leeds United"
+ },
+ "LIV": {
+  "fm": 8650,
+  "nombre": "Liverpool"
+ },
+ "MCI": {
+  "fm": 8456,
+  "nombre": "Manchester City"
+ },
+ "MUN": {
+  "fm": 10260,
+  "nombre": "Manchester United"
+ },
+ "NEW": {
+  "fm": 10261,
+  "nombre": "Newcastle United"
+ },
+ "NFO": {
+  "fm": 10203,
+  "nombre": "Nottingham Forest"
+ },
+ "SUN": {
+  "fm": 8472,
+  "nombre": "Sunderland"
+ },
+ "TOT": {
+  "fm": 8586,
+  "nombre": "Tottenham Hotspur"
+ }
+}
