@@ -31,17 +31,17 @@
    "temperature": 8,
    "windSpeed": 6,
    "windDirectionCardinal": "SW",
-   "iconCode": 34,
+   "iconCode": 30,
    "relativeHumidity": 81,
-   "precipChance": 6,
+   "precipChance": 5,
    "precipitation": 0,
    "snow": 0,
-   "cloudCover": 26,
-   "description": "Mostly Sunny",
+   "cloudCover": 34,
+   "description": "Partly Cloudy",
    "apiUsed": "forecast",
-   "lastUpdated": "2026-11-27T03:00:04Z",
-   "localizedKey": "weather_condition_sunny",
-   "defaultTitle": "Sunny"
+   "lastUpdated": "2026-11-27T15:00:02Z",
+   "localizedKey": "weather_condition_partly_cloudy",
+   "defaultTitle": "Partly Cloudy"
   }
  },
  "alineaciones": {
@@ -90,35 +90,35 @@
     "jugador": "TOT-683402",
     "nombre": "Tosin Adarabioyo",
     "motivo": "lesion",
-    "regreso": "Late November 2026",
-    "p_juega": 0.0
+    "regreso": "Doubtful",
+    "p_juega": 0.5
    },
    {
     "jugador": "TOT-1173787",
     "nombre": "Xavi Simons",
     "motivo": "lesion",
-    "regreso": "Early February 2027",
+    "regreso": "Mid January 2027",
     "p_juega": 0.0
    },
    {
     "jugador": "TOT-1288111",
     "nombre": "Mathys Tel",
     "motivo": "lesion",
-    "regreso": "Late November 2026",
+    "regreso": "Mid December 2026",
     "p_juega": 0.0
    },
    {
     "jugador": "TOT-976506",
     "nombre": "Mykhaylo Mudryk",
     "motivo": "lesion",
-    "regreso": "Late November 2026",
+    "regreso": "Early December 2026",
     "p_juega": 0.0
    },
    {
     "jugador": "TOT-1174337",
     "nombre": "Sávio",
     "motivo": "lesion",
-    "regreso": "Mid December 2026",
+    "regreso": "Late January 2027",
     "p_juega": 0.0
    },
    {

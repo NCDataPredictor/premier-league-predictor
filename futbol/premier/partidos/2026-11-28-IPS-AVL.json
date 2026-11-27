@@ -28,18 +28,18 @@
    "penaltis": 9
   },
   "clima": {
-   "temperature": 7,
+   "temperature": 6,
    "windSpeed": 7,
    "windDirectionCardinal": "SSE",
    "iconCode": 11,
    "relativeHumidity": 86,
    "precipChance": 65,
-   "precipitation": 0.5,
+   "precipitation": 0.44,
    "snow": 0,
    "cloudCover": 100,
    "description": "Light Rain",
    "apiUsed": "forecast",
-   "lastUpdated": "2026-11-27T06:00:08Z",
+   "lastUpdated": "2026-11-27T18:00:02Z",
    "localizedKey": "weather_condition_light_rain",
    "defaultTitle": "Light Rain"
   }
@@ -48,28 +48,20 @@
   "estado": null
  },
  "bajas": {
-  "IPS": [
-   {
-    "jugador": "IPS-980381",
-    "nombre": "Leif Davis",
-    "motivo": "lesion",
-    "regreso": "Late December 2026",
-    "p_juega": 0.0
-   }
-  ],
+  "IPS": [],
   "AVL": [
-   {
-    "jugador": "AVL-1051097",
-    "nombre": "Matteo Ruggeri",
-    "motivo": "lesion",
-    "regreso": "Mid December 2026",
-    "p_juega": 0.0
-   },
    {
     "jugador": "AVL-729731",
     "nombre": "Matty Cash",
     "motivo": "lesion",
     "regreso": "Late November 2026",
+    "p_juega": 0.0
+   },
+   {
+    "jugador": "AVL-1051097",
+    "nombre": "Matteo Ruggeri",
+    "motivo": "lesion",
+    "regreso": "Mid December 2026",
     "p_juega": 0.0
    },
    {

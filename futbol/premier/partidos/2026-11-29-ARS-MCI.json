@@ -29,19 +29,19 @@
   },
   "clima": {
    "temperature": 10,
-   "windSpeed": 3,
+   "windSpeed": 4,
    "windDirectionCardinal": "SW",
-   "iconCode": 31,
-   "relativeHumidity": 78,
-   "precipChance": 6,
+   "iconCode": 29,
+   "relativeHumidity": 77,
+   "precipChance": 5,
    "precipitation": 0,
    "snow": 0,
-   "cloudCover": 4,
-   "description": "Clear",
+   "cloudCover": 31,
+   "description": "Partly Cloudy",
    "apiUsed": "forecast",
-   "lastUpdated": "2026-11-27T05:00:05Z",
-   "localizedKey": "weather_condition_clear",
-   "defaultTitle": "Clear"
+   "lastUpdated": "2026-11-27T17:00:02Z",
+   "localizedKey": "weather_condition_partly_cloudy",
+   "defaultTitle": "Partly Cloudy"
   }
  },
  "alineaciones": {
@@ -67,7 +67,7 @@
     "jugador": "ARS-961995",
     "nombre": "Bukayo Saka",
     "motivo": "lesion",
-    "regreso": "Late December 2026",
+    "regreso": "Back in training",
     "p_juega": 0.0
    }
   ],
@@ -76,7 +76,7 @@
     "jugador": "MCI-933576",
     "nombre": "Antoine Semenyo",
     "motivo": "lesion",
-    "regreso": "Mid December 2026",
+    "regreso": "Early December 2026",
     "p_juega": 0.0
    }
   ]

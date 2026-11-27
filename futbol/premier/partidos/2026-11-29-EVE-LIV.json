@@ -30,18 +30,18 @@
   "clima": {
    "temperature": 9,
    "windSpeed": 4,
-   "windDirectionCardinal": "SSW",
-   "iconCode": 30,
+   "windDirectionCardinal": "SW",
+   "iconCode": 34,
    "relativeHumidity": 83,
    "precipChance": 24,
    "precipitation": 0,
    "snow": 0,
-   "cloudCover": 54,
-   "description": "Partly Cloudy",
+   "cloudCover": 27,
+   "description": "Mostly Sunny",
    "apiUsed": "forecast",
-   "lastUpdated": "2026-11-27T01:00:04Z",
-   "localizedKey": "weather_condition_partly_cloudy",
-   "defaultTitle": "Partly Cloudy"
+   "lastUpdated": "2026-11-27T18:00:02Z",
+   "localizedKey": "weather_condition_sunny",
+   "defaultTitle": "Sunny"
   }
  },
  "alineaciones": {
@@ -58,13 +58,6 @@
    }
   ],
   "LIV": [
-   {
-    "jugador": "LIV-1553105",
-    "nombre": "Víctor Muñoz",
-    "motivo": "lesion",
-    "regreso": "Doubtful",
-    "p_juega": 0.5
-   },
    {
     "jugador": "LIV-1113690",
     "nombre": "Conor Bradley",
@@ -83,14 +76,14 @@
     "jugador": "LIV-956683",
     "nombre": "Ryan Gravenberch",
     "motivo": "lesion",
-    "regreso": "A few days",
-    "p_juega": 0.0
+    "regreso": "Doubtful",
+    "p_juega": 0.5
    },
    {
     "jugador": "LIV-806552",
     "nombre": "Cody Gakpo",
     "motivo": "lesion",
-    "regreso": "A few days",
+    "regreso": "Late November 2026",
     "p_juega": 0.0
    },
    {
@@ -99,6 +92,13 @@
     "motivo": "lesion",
     "regreso": "Early January 2027",
     "p_juega": 0.0
+   },
+   {
+    "jugador": "LIV-1553105",
+    "nombre": "Víctor Muñoz",
+    "motivo": "lesion",
+    "regreso": "Doubtful",
+    "p_juega": 0.5
    }
   ]
  },

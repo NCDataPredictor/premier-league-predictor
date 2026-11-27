@@ -28,18 +28,18 @@
    "penaltis": 10
   },
   "clima": {
-   "temperature": 10,
-   "windSpeed": 3,
+   "temperature": 11,
+   "windSpeed": 4,
    "windDirectionCardinal": "SW",
    "iconCode": 32,
-   "relativeHumidity": 77,
-   "precipChance": 5,
+   "relativeHumidity": 72,
+   "precipChance": 4,
    "precipitation": 0,
    "snow": 0,
-   "cloudCover": 1,
+   "cloudCover": 7,
    "description": "Sunny",
    "apiUsed": "forecast",
-   "lastUpdated": "2026-11-27T03:00:04Z",
+   "lastUpdated": "2026-11-27T15:00:02Z",
    "localizedKey": "weather_condition_sunny",
    "defaultTitle": "Sunny"
   }
@@ -57,6 +57,13 @@
     "p_juega": 0.0
    },
    {
+    "jugador": "FUL-503659",
+    "nombre": "Joachim Andersen",
+    "motivo": "lesion",
+    "regreso": "Mid December 2026",
+    "p_juega": 0.0
+   },
+   {
     "jugador": "FUL-889534",
     "nombre": "Emile Smith Rowe",
     "motivo": "lesion",
@@ -65,6 +72,20 @@
    }
   ],
   "BOU": [
+   {
+    "jugador": "BOU-1324871",
+    "nombre": "Ben Gannon-Doak",
+    "motivo": "lesion",
+    "regreso": "Doubtful",
+    "p_juega": 0.5
+   },
+   {
+    "jugador": "BOU-1460534",
+    "nombre": "Junior Kroupi",
+    "motivo": "lesion",
+    "regreso": "Doubtful",
+    "p_juega": 0.5
+   },
    {
     "jugador": "BOU-1158512",
     "nombre": "Juanlu Sánchez",

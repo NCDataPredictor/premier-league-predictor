@@ -29,17 +29,17 @@
   },
   "clima": {
    "temperature": 9,
-   "windSpeed": 5,
+   "windSpeed": 6,
    "windDirectionCardinal": "SSE",
    "iconCode": 12,
-   "relativeHumidity": 88,
-   "precipChance": 90,
-   "precipitation": 1.51,
+   "relativeHumidity": 87,
+   "precipChance": 99,
+   "precipitation": 1.72,
    "snow": 0,
    "cloudCover": 100,
    "description": "Rain",
    "apiUsed": "forecast",
-   "lastUpdated": "2026-11-27T09:00:01Z",
+   "lastUpdated": "2026-11-27T18:00:02Z",
    "localizedKey": "weather_condition_rain",
    "defaultTitle": "Rain"
   }
@@ -49,6 +49,13 @@
  },
  "bajas": {
   "MUN": [
+   {
+    "jugador": "MUN-422685",
+    "nombre": "Bruno Fernandes",
+    "motivo": "lesion",
+    "regreso": "Doubtful",
+    "p_juega": 0.5
+   },
    {
     "jugador": "MUN-1070052",
     "nombre": "Amad Diallo",
@@ -81,7 +88,7 @@
     "jugador": "MUN-696365",
     "nombre": "Marcus Rashford",
     "motivo": "lesion",
-    "regreso": "Early December 2026",
+    "regreso": "Back in training",
     "p_juega": 0.0
    }
   ],

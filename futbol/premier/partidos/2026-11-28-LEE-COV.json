@@ -32,14 +32,14 @@
    "windSpeed": 6,
    "windDirectionCardinal": "SE",
    "iconCode": 12,
-   "relativeHumidity": 95,
+   "relativeHumidity": 96,
    "precipChance": 88,
-   "precipitation": 1.51,
+   "precipitation": 0.99,
    "snow": 0,
    "cloudCover": 100,
    "description": "Rain",
    "apiUsed": "forecast",
-   "lastUpdated": "2026-11-27T09:00:01Z",
+   "lastUpdated": "2026-11-27T18:00:02Z",
    "localizedKey": "weather_condition_rain",
    "defaultTitle": "Rain"
   }
@@ -59,6 +59,20 @@
   ],
   "COV": [
    {
+    "jugador": "COV-1615927",
+    "nombre": "Caleb Yirenkyi",
+    "motivo": "lesion",
+    "regreso": "Doubtful",
+    "p_juega": 0.5
+   },
+   {
+    "jugador": "COV-798654",
+    "nombre": "Ephron Mason-Clark",
+    "motivo": "lesion",
+    "regreso": "Doubtful",
+    "p_juega": 0.5
+   },
+   {
     "jugador": "COV-1257648",
     "nombre": "Aurèle Amenda",
     "motivo": "lesion",
@@ -73,25 +87,11 @@
     "p_juega": 0.0
    },
    {
-    "jugador": "COV-1615927",
-    "nombre": "Caleb Yirenkyi",
-    "motivo": "lesion",
-    "regreso": "Doubtful",
-    "p_juega": 0.5
-   },
-   {
     "jugador": "COV-962000",
     "nombre": "Josh Eccles",
     "motivo": "lesion",
     "regreso": "Late November 2026",
     "p_juega": 0.0
-   },
-   {
-    "jugador": "COV-798654",
-    "nombre": "Ephron Mason-Clark",
-    "motivo": "lesion",
-    "regreso": "Doubtful",
-    "p_juega": 0.5
    },
    {
     "jugador": "COV-848268",
