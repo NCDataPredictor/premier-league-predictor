@@ -2,7 +2,7 @@
  "liga": "Premier League",
  "temporada": "2026-27",
  "version": "futbol-0.2",
- "actualizado": "2026-11-27T01:48Z",
+ "actualizado": "2026-11-27T02:07Z",
  "ejemplo": false,
  "partidos": [
   {
@@ -34,7 +34,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T01:45Z",
+   "cuotas_capturadas": "2026-11-27T02:04Z",
    "alineacion": {
     "NFO": "prevista (últimos 10)",
     "CHE": "prevista (últimos 10)"
@@ -73,7 +73,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 2,
-   "cuotas_capturadas": "2026-11-27T01:45Z",
+   "cuotas_capturadas": "2026-11-27T02:04Z",
    "alineacion": {
     "LEE": "prevista (últimos 10)",
     "COV": "prevista (últimos 10)"
@@ -112,7 +112,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T01:45Z",
+   "cuotas_capturadas": "2026-11-27T02:04Z",
    "alineacion": {
     "MUN": "prevista (últimos 10)",
     "BRE": "prevista (últimos 10)"
@@ -151,7 +151,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T01:45Z",
+   "cuotas_capturadas": "2026-11-27T02:04Z",
    "alineacion": {
     "IPS": "prevista (últimos 10)",
     "AVL": "prevista (últimos 10)"
@@ -190,7 +190,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T01:45Z",
+   "cuotas_capturadas": "2026-11-27T02:04Z",
    "alineacion": {
     "EVE": "prevista (últimos 10)",
     "LIV": "prevista (últimos 10)"
@@ -229,7 +229,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T01:45Z",
+   "cuotas_capturadas": "2026-11-27T02:04Z",
    "alineacion": {
     "BHA": "prevista (últimos 10)",
     "NEW": "prevista (últimos 10)"
@@ -268,7 +268,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T01:45Z",
+   "cuotas_capturadas": "2026-11-27T02:04Z",
    "alineacion": {
     "CRY": "prevista (últimos 10)",
     "HUL": "prevista (últimos 10)"
@@ -307,7 +307,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T01:45Z",
+   "cuotas_capturadas": "2026-11-27T02:04Z",
    "alineacion": {
     "FUL": "prevista (últimos 10)",
     "BOU": "prevista (últimos 10)"
@@ -346,7 +346,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T01:45Z",
+   "cuotas_capturadas": "2026-11-27T02:04Z",
    "alineacion": {
     "SUN": "prevista (últimos 10)",
     "TOT": "prevista (últimos 10)"
@@ -385,7 +385,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T01:45Z",
+   "cuotas_capturadas": "2026-11-27T02:04Z",
    "alineacion": {
     "ARS": "prevista (últimos 10)",
     "MCI": "prevista (últimos 10)"
