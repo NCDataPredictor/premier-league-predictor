@@ -2,7 +2,7 @@
  "liga": "Premier League",
  "temporada": "2026-27",
  "version": "futbol-0.2",
- "actualizado": "2026-11-26T16:20Z",
+ "actualizado": "2026-11-27T00:50Z",
  "ejemplo": false,
  "partidos": [
   {
@@ -17,31 +17,31 @@
    "derbi": null,
    "arbitro": "Andy Madley",
    "1x2": [
-    0.432,
-    0.289,
-    0.279
+    0.43,
+    0.284,
+    0.286
    ],
-   "goles": 2.86,
-   "over25": 0.536,
+   "goles": 2.85,
+   "over25": 0.538,
    "ambos": 0.603,
-   "corners": 9.64,
-   "amarillas": 4.96,
+   "corners": 9.44,
+   "amarillas": 5.02,
    "marcador": [
     "1-1",
-    0.128
+    0.13
    ],
    "n_picks": 0,
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "cuotas_capturadas": "2026-11-27T00:47Z",
    "alineacion": {
     "NFO": "prevista (últimos 10)",
     "CHE": "prevista (últimos 10)"
    },
    "bajas": {
     "NFO": 2,
-    "CHE": 6
+    "CHE": 5
    }
   },
   {
@@ -73,7 +73,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 2,
-   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "cuotas_capturadas": "2026-11-27T00:47Z",
    "alineacion": {
     "LEE": "prevista (últimos 10)",
     "COV": "prevista (últimos 10)"
@@ -112,7 +112,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "cuotas_capturadas": "2026-11-27T00:47Z",
    "alineacion": {
     "MUN": "prevista (últimos 10)",
     "BRE": "prevista (últimos 10)"
@@ -151,7 +151,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "cuotas_capturadas": "2026-11-27T00:47Z",
    "alineacion": {
     "IPS": "prevista (últimos 10)",
     "AVL": "prevista (últimos 10)"
@@ -186,11 +186,11 @@
     "1-1",
     0.113
    ],
-   "n_picks": 2,
+   "n_picks": 1,
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "cuotas_capturadas": "2026-11-27T00:47Z",
    "alineacion": {
     "EVE": "prevista (últimos 10)",
     "LIV": "prevista (últimos 10)"
@@ -229,7 +229,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "cuotas_capturadas": "2026-11-27T00:47Z",
    "alineacion": {
     "BHA": "prevista (últimos 10)",
     "NEW": "prevista (últimos 10)"
@@ -251,15 +251,15 @@
    "derbi": null,
    "arbitro": "Jarred Gillett",
    "1x2": [
-    0.479,
-    0.288,
-    0.233
+    0.494,
+    0.281,
+    0.225
    ],
-   "goles": 2.66,
-   "over25": 0.493,
-   "ambos": 0.56,
-   "corners": 9.77,
-   "amarillas": 4.78,
+   "goles": 2.69,
+   "over25": 0.499,
+   "ambos": 0.561,
+   "corners": 9.73,
+   "amarillas": 4.82,
    "marcador": [
     "1-1",
     0.134
@@ -268,13 +268,13 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "cuotas_capturadas": "2026-11-27T00:47Z",
    "alineacion": {
     "CRY": "prevista (últimos 10)",
     "HUL": "prevista (últimos 10)"
    },
    "bajas": {
-    "CRY": 6,
+    "CRY": 5,
     "HUL": 3
    }
   },
@@ -303,11 +303,11 @@
     "1-1",
     0.135
    ],
-   "n_picks": 1,
+   "n_picks": 0,
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "cuotas_capturadas": "2026-11-27T00:47Z",
    "alineacion": {
     "FUL": "prevista (últimos 10)",
     "BOU": "prevista (últimos 10)"
@@ -346,7 +346,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "cuotas_capturadas": "2026-11-27T00:47Z",
    "alineacion": {
     "SUN": "prevista (últimos 10)",
     "TOT": "prevista (últimos 10)"
@@ -385,7 +385,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-26T16:17Z",
+   "cuotas_capturadas": "2026-11-27T00:47Z",
    "alineacion": {
     "ARS": "prevista (últimos 10)",
     "MCI": "prevista (últimos 10)"

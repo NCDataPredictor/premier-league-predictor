@@ -9,7 +9,7 @@
   "fecha": "2026-11-27",
   "hora_local": "20:00",
   "hora_bogota": "15:00",
-  "utc": "2026-11-27T20:00:00Z",
+  "utc": "2026-11-27T20:00:00.000Z",
   "local": "NFO",
   "visitante": "CHE",
   "estadio": "The City Ground",
@@ -29,17 +29,17 @@
   },
   "clima": {
    "temperature": 3,
-   "windSpeed": 4,
+   "windSpeed": 3,
    "windDirectionCardinal": "SE",
    "iconCode": 11,
-   "relativeHumidity": 89,
-   "precipChance": 62,
-   "precipitation": 0.4,
+   "relativeHumidity": 90,
+   "precipChance": 44,
+   "precipitation": 0.2,
    "snow": 0,
    "cloudCover": 100,
    "description": "Light Rain",
    "apiUsed": "forecast",
-   "lastUpdated": "2026-11-26T14:00:01Z",
+   "lastUpdated": "2026-11-26T23:00:02Z",
    "localizedKey": "weather_condition_light_rain",
    "defaultTitle": "Light Rain"
   }
@@ -53,22 +53,22 @@
     "jugador": "NFO-1622290",
     "nombre": "Nicolò Savona",
     "motivo": "lesion",
-    "regreso": "Doubtful",
-    "p_juega": 0.5
+    "regreso": "Early December 2026",
+    "p_juega": 0.0
    },
    {
     "jugador": "NFO-827315",
     "nombre": "Nicolás Domínguez",
     "motivo": "lesion",
-    "regreso": "Late December 2026",
+    "regreso": "Early January 2027",
     "p_juega": 0.0
    },
    {
     "jugador": "NFO-846383",
     "nombre": "Callum Hudson-Odoi",
     "motivo": "lesion",
-    "regreso": "Mid December 2026",
-    "p_juega": 0.0
+    "regreso": "Doubtful",
+    "p_juega": 0.5
    }
   ],
   "CHE": [
@@ -87,13 +87,6 @@
     "p_juega": 0.0
    },
    {
-    "jugador": "CHE-1137668",
-    "nombre": "Moisés Caicedo",
-    "motivo": "lesion",
-    "regreso": "Early December 2026",
-    "p_juega": 0.0
-   },
-   {
     "jugador": "CHE-807729",
     "nombre": "Reece James",
     "motivo": "lesion",
@@ -104,8 +97,8 @@
     "jugador": "CHE-1113692",
     "nombre": "Jamie Gittens",
     "motivo": "lesion",
-    "regreso": "Back in training",
-    "p_juega": 0.0
+    "regreso": "Doubtful",
+    "p_juega": 0.5
    },
    {
     "jugador": "CHE-1021382",
