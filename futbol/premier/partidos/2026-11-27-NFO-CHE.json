@@ -33,13 +33,13 @@
    "windDirectionCardinal": "SE",
    "iconCode": 11,
    "relativeHumidity": 90,
-   "precipChance": 44,
+   "precipChance": 52,
    "precipitation": 0.2,
    "snow": 0,
    "cloudCover": 100,
    "description": "Light Rain",
    "apiUsed": "forecast",
-   "lastUpdated": "2026-11-26T23:00:02Z",
+   "lastUpdated": "2026-11-27T12:00:01Z",
    "localizedKey": "weather_condition_light_rain",
    "defaultTitle": "Light Rain"
   }

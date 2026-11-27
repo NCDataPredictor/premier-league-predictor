@@ -28,18 +28,18 @@
    "penaltis": 9
   },
   "clima": {
-   "temperature": 8,
-   "windSpeed": 3,
+   "temperature": 9,
+   "windSpeed": 5,
    "windDirectionCardinal": "SSE",
    "iconCode": 12,
-   "relativeHumidity": 90,
-   "precipChance": 75,
-   "precipitation": 1.55,
+   "relativeHumidity": 88,
+   "precipChance": 90,
+   "precipitation": 1.51,
    "snow": 0,
    "cloudCover": 100,
    "description": "Rain",
    "apiUsed": "forecast",
-   "lastUpdated": "2026-11-26T21:00:02Z",
+   "lastUpdated": "2026-11-27T09:00:01Z",
    "localizedKey": "weather_condition_rain",
    "defaultTitle": "Rain"
   }

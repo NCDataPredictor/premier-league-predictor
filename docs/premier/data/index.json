@@ -2,7 +2,7 @@
  "liga": "Premier League",
  "temporada": "2026-27",
  "version": "futbol-0.2",
- "actualizado": "2026-11-27T02:07Z",
+ "actualizado": "2026-11-27T12:24Z",
  "ejemplo": false,
  "partidos": [
   {
@@ -17,24 +17,24 @@
    "derbi": null,
    "arbitro": "Andy Madley",
    "1x2": [
-    0.43,
-    0.284,
-    0.286
+    0.431,
+    0.292,
+    0.277
    ],
-   "goles": 2.85,
-   "over25": 0.538,
-   "ambos": 0.603,
-   "corners": 9.44,
-   "amarillas": 5.02,
+   "goles": 2.75,
+   "over25": 0.512,
+   "ambos": 0.585,
+   "corners": 9.43,
+   "amarillas": 5.0,
    "marcador": [
     "1-1",
-    0.13
+    0.137
    ],
    "n_picks": 0,
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T02:04Z",
+   "cuotas_capturadas": "2026-11-27T12:21Z",
    "alineacion": {
     "NFO": "prevista (últimos 10)",
     "CHE": "prevista (últimos 10)"
@@ -56,24 +56,24 @@
    "derbi": null,
    "arbitro": "Paul Tierney",
    "1x2": [
-    0.612,
-    0.235,
-    0.153
+    0.605,
+    0.24,
+    0.155
    ],
    "goles": 2.93,
-   "over25": 0.554,
-   "ambos": 0.56,
-   "corners": 7.35,
-   "amarillas": 3.49,
+   "over25": 0.552,
+   "ambos": 0.564,
+   "corners": 7.38,
+   "amarillas": 3.48,
    "marcador": [
     "1-0",
     0.117
    ],
-   "n_picks": 5,
+   "n_picks": 4,
    "picks_desde": null,
    "ejemplo": false,
-   "n_errores": 2,
-   "cuotas_capturadas": "2026-11-27T02:04Z",
+   "n_errores": 1,
+   "cuotas_capturadas": "2026-11-27T12:21Z",
    "alineacion": {
     "LEE": "prevista (últimos 10)",
     "COV": "prevista (últimos 10)"
@@ -95,24 +95,24 @@
    "derbi": null,
    "arbitro": "Robert Jones",
    "1x2": [
-    0.438,
-    0.27,
-    0.292
+    0.424,
+    0.267,
+    0.309
    ],
-   "goles": 3.27,
-   "over25": 0.625,
-   "ambos": 0.675,
-   "corners": 11.2,
-   "amarillas": 4.43,
+   "goles": 3.28,
+   "over25": 0.632,
+   "ambos": 0.682,
+   "corners": 11.23,
+   "amarillas": 4.42,
    "marcador": [
     "1-1",
-    0.115
+    0.113
    ],
    "n_picks": 0,
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T02:04Z",
+   "cuotas_capturadas": "2026-11-27T12:21Z",
    "alineacion": {
     "MUN": "prevista (últimos 10)",
     "BRE": "prevista (últimos 10)"
@@ -134,24 +134,24 @@
    "derbi": null,
    "arbitro": "Michael Salisbury",
    "1x2": [
-    0.288,
-    0.267,
-    0.445
+    0.291,
+    0.273,
+    0.436
    ],
-   "goles": 3.37,
-   "over25": 0.644,
-   "ambos": 0.69,
-   "corners": 8.17,
-   "amarillas": 4.9,
+   "goles": 3.33,
+   "over25": 0.636,
+   "ambos": 0.684,
+   "corners": 8.14,
+   "amarillas": 4.87,
    "marcador": [
     "1-1",
-    0.112
+    0.115
    ],
    "n_picks": 1,
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T02:04Z",
+   "cuotas_capturadas": "2026-11-27T12:21Z",
    "alineacion": {
     "IPS": "prevista (últimos 10)",
     "AVL": "prevista (últimos 10)"
@@ -173,15 +173,15 @@
    "derbi": "Derbi de Merseyside",
    "arbitro": "Michael Oliver",
    "1x2": [
-    0.196,
-    0.256,
-    0.548
+    0.195,
+    0.251,
+    0.555
    ],
-   "goles": 3.08,
-   "over25": 0.594,
-   "ambos": 0.618,
-   "corners": 10.02,
-   "amarillas": 3.45,
+   "goles": 3.1,
+   "over25": 0.591,
+   "ambos": 0.62,
+   "corners": 10.0,
+   "amarillas": 3.46,
    "marcador": [
     "1-1",
     0.113
@@ -190,7 +190,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T02:04Z",
+   "cuotas_capturadas": "2026-11-27T12:21Z",
    "alineacion": {
     "EVE": "prevista (últimos 10)",
     "LIV": "prevista (últimos 10)"
@@ -212,24 +212,24 @@
    "derbi": null,
    "arbitro": "Simon Hooper",
    "1x2": [
-    0.572,
-    0.24,
-    0.189
+    0.576,
+    0.241,
+    0.183
    ],
-   "goles": 3.27,
-   "over25": 0.628,
-   "ambos": 0.639,
-   "corners": 10.71,
+   "goles": 3.29,
+   "over25": 0.635,
+   "ambos": 0.643,
+   "corners": 10.7,
    "amarillas": 4.24,
    "marcador": [
     "2-1",
-    0.108
+    0.106
    ],
    "n_picks": 2,
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T02:04Z",
+   "cuotas_capturadas": "2026-11-27T12:21Z",
    "alineacion": {
     "BHA": "prevista (últimos 10)",
     "NEW": "prevista (últimos 10)"
@@ -251,24 +251,24 @@
    "derbi": null,
    "arbitro": "Jarred Gillett",
    "1x2": [
-    0.494,
-    0.281,
-    0.225
+    0.476,
+    0.288,
+    0.236
    ],
-   "goles": 2.69,
-   "over25": 0.499,
-   "ambos": 0.561,
-   "corners": 9.73,
-   "amarillas": 4.82,
+   "goles": 2.72,
+   "over25": 0.507,
+   "ambos": 0.562,
+   "corners": 9.75,
+   "amarillas": 4.8,
    "marcador": [
     "1-1",
-    0.134
+    0.13
    ],
    "n_picks": 0,
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T02:04Z",
+   "cuotas_capturadas": "2026-11-27T12:21Z",
    "alineacion": {
     "CRY": "prevista (últimos 10)",
     "HUL": "prevista (últimos 10)"
@@ -290,14 +290,14 @@
    "derbi": null,
    "arbitro": "Stuart Attwell",
    "1x2": [
-    0.332,
-    0.295,
-    0.372
+    0.323,
+    0.292,
+    0.385
    ],
-   "goles": 2.79,
-   "over25": 0.524,
-   "ambos": 0.6,
-   "corners": 9.91,
+   "goles": 2.77,
+   "over25": 0.517,
+   "ambos": 0.593,
+   "corners": 9.92,
    "amarillas": 4.36,
    "marcador": [
     "1-1",
@@ -307,7 +307,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T02:04Z",
+   "cuotas_capturadas": "2026-11-27T12:21Z",
    "alineacion": {
     "FUL": "prevista (últimos 10)",
     "BOU": "prevista (últimos 10)"
@@ -329,24 +329,24 @@
    "derbi": null,
    "arbitro": "Peter Bankes",
    "1x2": [
-    0.235,
-    0.297,
-    0.468
+    0.231,
+    0.289,
+    0.481
    ],
-   "goles": 2.5,
-   "over25": 0.454,
-   "ambos": 0.531,
-   "corners": 9.09,
-   "amarillas": 5.48,
+   "goles": 2.52,
+   "over25": 0.457,
+   "ambos": 0.524,
+   "corners": 9.07,
+   "amarillas": 5.47,
    "marcador": [
     "1-1",
-    0.142
+    0.135
    ],
-   "n_picks": 1,
+   "n_picks": 0,
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T02:04Z",
+   "cuotas_capturadas": "2026-11-27T12:21Z",
    "alineacion": {
     "SUN": "prevista (últimos 10)",
     "TOT": "prevista (últimos 10)"
@@ -368,24 +368,24 @@
    "derbi": null,
    "arbitro": "John Brooks",
    "1x2": [
-    0.457,
-    0.285,
-    0.258
+    0.463,
+    0.283,
+    0.254
    ],
-   "goles": 2.76,
-   "over25": 0.515,
-   "ambos": 0.58,
+   "goles": 2.77,
+   "over25": 0.516,
+   "ambos": 0.582,
    "corners": 10.61,
-   "amarillas": 4.41,
+   "amarillas": 4.4,
    "marcador": [
     "1-1",
-    0.128
+    0.132
    ],
    "n_picks": 1,
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T02:04Z",
+   "cuotas_capturadas": "2026-11-27T12:21Z",
    "alineacion": {
     "ARS": "prevista (últimos 10)",
     "MCI": "prevista (últimos 10)"

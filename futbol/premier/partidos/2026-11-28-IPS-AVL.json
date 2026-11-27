@@ -28,18 +28,18 @@
    "penaltis": 9
   },
   "clima": {
-   "temperature": 6,
+   "temperature": 7,
    "windSpeed": 7,
    "windDirectionCardinal": "SSE",
    "iconCode": 11,
-   "relativeHumidity": 87,
-   "precipChance": 52,
-   "precipitation": 0.3,
+   "relativeHumidity": 86,
+   "precipChance": 65,
+   "precipitation": 0.5,
    "snow": 0,
-   "cloudCover": 99,
+   "cloudCover": 100,
    "description": "Light Rain",
    "apiUsed": "forecast",
-   "lastUpdated": "2026-11-27T00:00:04Z",
+   "lastUpdated": "2026-11-27T06:00:08Z",
    "localizedKey": "weather_condition_light_rain",
    "defaultTitle": "Light Rain"
   }

@@ -29,17 +29,17 @@
   },
   "clima": {
    "temperature": 8,
-   "windSpeed": 5,
-   "windDirectionCardinal": "SSW",
+   "windSpeed": 6,
+   "windDirectionCardinal": "SW",
    "iconCode": 34,
-   "relativeHumidity": 83,
+   "relativeHumidity": 81,
    "precipChance": 6,
    "precipitation": 0,
    "snow": 0,
-   "cloudCover": 20,
+   "cloudCover": 26,
    "description": "Mostly Sunny",
    "apiUsed": "forecast",
-   "lastUpdated": "2026-11-26T15:00:02Z",
+   "lastUpdated": "2026-11-27T03:00:04Z",
    "localizedKey": "weather_condition_sunny",
    "defaultTitle": "Sunny"
   }
