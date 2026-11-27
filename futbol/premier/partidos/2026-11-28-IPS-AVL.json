@@ -32,14 +32,14 @@
    "windSpeed": 7,
    "windDirectionCardinal": "SSE",
    "iconCode": 11,
-   "relativeHumidity": 86,
-   "precipChance": 65,
-   "precipitation": 0.44,
+   "relativeHumidity": 85,
+   "precipChance": 58,
+   "precipitation": 0.35,
    "snow": 0,
    "cloudCover": 100,
    "description": "Light Rain",
    "apiUsed": "forecast",
-   "lastUpdated": "2026-11-27T18:00:02Z",
+   "lastUpdated": "2026-11-27T21:00:03Z",
    "localizedKey": "weather_condition_light_rain",
    "defaultTitle": "Light Rain"
   }
@@ -50,13 +50,6 @@
  "bajas": {
   "IPS": [],
   "AVL": [
-   {
-    "jugador": "AVL-729731",
-    "nombre": "Matty Cash",
-    "motivo": "lesion",
-    "regreso": "Late November 2026",
-    "p_juega": 0.0
-   },
    {
     "jugador": "AVL-1051097",
     "nombre": "Matteo Ruggeri",

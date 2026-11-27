@@ -29,17 +29,17 @@
   },
   "clima": {
    "temperature": 6,
-   "windSpeed": 6,
+   "windSpeed": 7,
    "windDirectionCardinal": "SE",
    "iconCode": 12,
    "relativeHumidity": 96,
-   "precipChance": 88,
-   "precipitation": 0.99,
+   "precipChance": 86,
+   "precipitation": 0.75,
    "snow": 0,
    "cloudCover": 100,
    "description": "Rain",
    "apiUsed": "forecast",
-   "lastUpdated": "2026-11-27T18:00:02Z",
+   "lastUpdated": "2026-11-27T21:00:03Z",
    "localizedKey": "weather_condition_rain",
    "defaultTitle": "Rain"
   }
@@ -90,7 +90,7 @@
     "jugador": "COV-962000",
     "nombre": "Josh Eccles",
     "motivo": "lesion",
-    "regreso": "Late November 2026",
+    "regreso": "Mid December 2026",
     "p_juega": 0.0
    },
    {
