@@ -57,6 +57,13 @@
     "p_juega": 0.0
    },
    {
+    "jugador": "BHA-1602352",
+    "nombre": "Malick Junior Yalcouyé",
+    "motivo": "lesion",
+    "regreso": "Early January 2027",
+    "p_juega": 0.0
+   },
+   {
     "jugador": "BHA-1068482",
     "nombre": "Evan Ferguson",
     "motivo": "lesion",
@@ -74,8 +81,8 @@
     "jugador": "BHA-1423616",
     "nombre": "Stefanos Tzimas",
     "motivo": "lesion",
-    "regreso": "Late November 2026",
-    "p_juega": 0.0
+    "regreso": "Doubtful",
+    "p_juega": 0.5
    },
    {
     "jugador": "BHA-1782648",

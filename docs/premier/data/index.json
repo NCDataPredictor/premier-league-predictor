@@ -2,7 +2,7 @@
  "liga": "Premier League",
  "temporada": "2026-27",
  "version": "futbol-0.2",
- "actualizado": "2026-11-27T22:35Z",
+ "actualizado": "2026-11-27T23:31Z",
  "ejemplo": false,
  "partidos": [
   {
@@ -73,7 +73,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 2,
-   "cuotas_capturadas": "2026-11-27T22:34Z",
+   "cuotas_capturadas": "2026-11-27T23:28Z",
    "alineacion": {
     "LEE": "prevista (últimos 10)",
     "COV": "prevista (últimos 10)"
@@ -112,7 +112,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T22:34Z",
+   "cuotas_capturadas": "2026-11-27T23:28Z",
    "alineacion": {
     "MUN": "prevista (últimos 10)",
     "BRE": "prevista (últimos 10)"
@@ -151,7 +151,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T22:34Z",
+   "cuotas_capturadas": "2026-11-27T23:28Z",
    "alineacion": {
     "IPS": "prevista (últimos 10)",
     "AVL": "prevista (últimos 10)"
@@ -190,7 +190,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T22:34Z",
+   "cuotas_capturadas": "2026-11-27T23:28Z",
    "alineacion": {
     "EVE": "prevista (últimos 10)",
     "LIV": "prevista (últimos 10)"
@@ -212,30 +212,30 @@
    "derbi": null,
    "arbitro": "Simon Hooper",
    "1x2": [
-    0.563,
-    0.247,
-    0.19
+    0.554,
+    0.245,
+    0.201
    ],
-   "goles": 3.37,
-   "over25": 0.649,
-   "ambos": 0.662,
-   "corners": 10.86,
-   "amarillas": 4.23,
+   "goles": 3.3,
+   "over25": 0.631,
+   "ambos": 0.649,
+   "corners": 11.0,
+   "amarillas": 4.26,
    "marcador": [
-    "2-1",
+    "1-1",
     0.106
    ],
    "n_picks": 1,
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T22:34Z",
+   "cuotas_capturadas": "2026-11-27T23:28Z",
    "alineacion": {
     "BHA": "prevista (últimos 10)",
     "NEW": "prevista (últimos 10)"
    },
    "bajas": {
-    "BHA": 2,
+    "BHA": 3,
     "NEW": 2
    }
   },
@@ -251,31 +251,31 @@
    "derbi": null,
    "arbitro": "Jarred Gillett",
    "1x2": [
-    0.481,
-    0.279,
-    0.24
+    0.468,
+    0.282,
+    0.25
    ],
-   "goles": 2.7,
-   "over25": 0.501,
-   "ambos": 0.564,
-   "corners": 9.77,
-   "amarillas": 4.79,
+   "goles": 2.76,
+   "over25": 0.515,
+   "ambos": 0.58,
+   "corners": 9.51,
+   "amarillas": 4.83,
    "marcador": [
     "1-1",
-    0.133
+    0.132
    ],
    "n_picks": 0,
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T22:34Z",
+   "cuotas_capturadas": "2026-11-27T23:28Z",
    "alineacion": {
     "CRY": "prevista (últimos 10)",
     "HUL": "prevista (últimos 10)"
    },
    "bajas": {
     "CRY": 5,
-    "HUL": 3
+    "HUL": 4
    }
   },
   {
@@ -307,7 +307,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T22:34Z",
+   "cuotas_capturadas": "2026-11-27T23:28Z",
    "alineacion": {
     "FUL": "prevista (últimos 10)",
     "BOU": "prevista (últimos 10)"
@@ -329,31 +329,31 @@
    "derbi": null,
    "arbitro": "Peter Bankes",
    "1x2": [
-    0.216,
-    0.294,
-    0.491
+    0.21,
+    0.289,
+    0.501
    ],
-   "goles": 2.51,
-   "over25": 0.458,
-   "ambos": 0.527,
+   "goles": 2.53,
+   "over25": 0.456,
+   "ambos": 0.522,
    "corners": 9.11,
-   "amarillas": 5.47,
+   "amarillas": 5.49,
    "marcador": [
     "1-1",
-    0.139
+    0.137
    ],
-   "n_picks": 0,
+   "n_picks": 1,
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T22:34Z",
+   "cuotas_capturadas": "2026-11-27T23:28Z",
    "alineacion": {
     "SUN": "prevista (últimos 10)",
     "TOT": "prevista (últimos 10)"
    },
    "bajas": {
     "SUN": 5,
-    "TOT": 4
+    "TOT": 5
    }
   },
   {
@@ -385,7 +385,7 @@
    "picks_desde": null,
    "ejemplo": false,
    "n_errores": 0,
-   "cuotas_capturadas": "2026-11-27T22:34Z",
+   "cuotas_capturadas": "2026-11-27T23:28Z",
    "alineacion": {
     "ARS": "prevista (últimos 10)",
     "MCI": "prevista (últimos 10)"

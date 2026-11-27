@@ -87,6 +87,13 @@
   ],
   "TOT": [
    {
+    "jugador": "TOT-1386775",
+    "nombre": "Lucas Bergvall",
+    "motivo": "lesion",
+    "regreso": "Doubtful",
+    "p_juega": 0.5
+   },
+   {
     "jugador": "TOT-683402",
     "nombre": "Tosin Adarabioyo",
     "motivo": "lesion",
