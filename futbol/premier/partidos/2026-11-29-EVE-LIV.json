@@ -31,17 +31,17 @@
    "temperature": 9,
    "windSpeed": 4,
    "windDirectionCardinal": "SW",
-   "iconCode": 34,
-   "relativeHumidity": 83,
-   "precipChance": 24,
-   "precipitation": 0,
+   "iconCode": 11,
+   "relativeHumidity": 84,
+   "precipChance": 31,
+   "precipitation": 0.1,
    "snow": 0,
-   "cloudCover": 27,
-   "description": "Mostly Sunny",
+   "cloudCover": 40,
+   "description": "Few Showers",
    "apiUsed": "forecast",
-   "lastUpdated": "2026-11-27T18:00:02Z",
-   "localizedKey": "weather_condition_sunny",
-   "defaultTitle": "Sunny"
+   "lastUpdated": "2026-11-28T06:00:08Z",
+   "localizedKey": "weather_condition_light_rain",
+   "defaultTitle": "Light Rain"
   }
  },
  "alineaciones": {
